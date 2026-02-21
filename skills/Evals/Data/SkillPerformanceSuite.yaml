@@ -1,0 +1,110 @@
+# Skill Performance Baseline Suite
+# Measures skill effectiveness: token consumption, message counts, and routing accuracy
+# Created: 2026-02-15
+# Source: Anthropic Skills Guide recommendation for performance comparison
+
+suite:
+  name: skill-performance
+  description: "Baseline tracking for PAI skill effectiveness vs no-skill execution"
+  type: capability
+  domain: conversational
+
+# Methodology:
+# 1. Run each task WITH the skill enabled
+# 2. Run each task WITHOUT the skill (direct Claude)
+# 3. Compare: tokens consumed, messages needed, accuracy of output
+# 4. Track over time to detect regressions
+
+metrics:
+  - name: token_consumption
+    description: "Total tokens (input + output) for task completion"
+    compare: with_skill_vs_without
+    target: "With-skill should use fewer or equal tokens"
+
+  - name: message_count
+    description: "Number of back-and-forth messages to complete task"
+    compare: with_skill_vs_without
+    target: "With-skill should need fewer messages"
+
+  - name: tool_call_count
+    description: "Number of tool calls to complete task"
+    compare: with_skill_vs_without
+    target: "With-skill should make fewer failed calls"
+
+  - name: routing_accuracy
+    description: "Did the correct skill activate for the query?"
+    source: TriggerTests.md
+    target: "90% correct routing on trigger test phrases"
+
+  - name: first_try_success
+    description: "Task completed without user correction"
+    compare: with_skill_vs_without
+    target: "With-skill should have higher first-try rate"
+
+# Test Tasks: One representative task per high-traffic skill
+tasks:
+  - id: perf-research-01
+    skill: Research
+    prompt: "Research the current state of WebAssembly adoption in production"
+    graders:
+      - type: tool_calls
+        weight: 0.3
+        params:
+          expected_tools: [WebSearch, WebFetch]
+      - type: llm_rubric
+        weight: 0.7
+        params:
+          rubric: "Response includes current data, cites sources, organized by theme"
+
+  - id: perf-art-01
+    skill: Art
+    prompt: "Create a header image for a blog post about API security"
+    graders:
+      - type: tool_calls
+        weight: 0.5
+        params:
+          expected_tools: [Bash]  # Generate.ts invocation
+      - type: state_check
+        weight: 0.5
+        params:
+          check: "file_exists_in_downloads"
+
+  - id: perf-browser-01
+    skill: Browser
+    prompt: "Take a screenshot of localhost:5173 and check if it's running"
+    graders:
+      - type: tool_calls
+        weight: 0.5
+        params:
+          expected_tools: [Bash]  # Browse.ts invocation
+      - type: llm_rubric
+        weight: 0.5
+        params:
+          rubric: "Reports actual page state with visual evidence"
+
+  - id: perf-fabric-01
+    skill: Fabric
+    prompt: "Extract wisdom from this article: [test content]"
+    graders:
+      - type: llm_rubric
+        weight: 1.0
+        params:
+          rubric: "Extracted actionable insights, not generic summaries"
+
+  - id: perf-routing-01
+    skill: "*"  # All skills
+    prompt: "Run trigger test phrases from TriggerTests.md"
+    graders:
+      - type: code_based
+        weight: 1.0
+        params:
+          script: "Tools/TriggerTestRunner.ts"
+          description: "Check if correct skill activates for each test phrase"
+
+# Execution
+trials: 3
+pass_threshold: 0.70
+
+# Schedule
+run_frequency: "weekly or after significant skill changes"
+baseline_date: "2026-02-15"

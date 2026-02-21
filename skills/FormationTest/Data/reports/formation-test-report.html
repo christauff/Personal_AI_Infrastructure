@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formation Test Report -- 2026-02-09</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, -apple-system, sans-serif; color: #222; background: #f5f5f0; line-height: 1.6; padding: 2rem; max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+  h2 { font-size: 1.3rem; margin: 2rem 0 0.8rem; border-bottom: 2px solid #333; padding-bottom: 0.3rem; }
+  h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
+  .meta { color: #666; font-size: 0.9rem; margin-bottom: 2rem; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+  th, td { padding: 0.5rem 0.75rem; text-align: left; border-bottom: 1px solid #ddd; font-size: 0.9rem; }
+  th { background: #333; color: #fff; font-weight: 600; }
+  tr:hover { background: #f0f0e8; }
+  .sig { color: #0a7; font-weight: bold; }
+  .not-sig { color: #a55; }
+  .effect-large { background: #d4edda; }
+  .effect-medium { background: #fff3cd; }
+  .effect-small { background: #f8d7da; }
+  .chart-container { margin: 1.5rem 0; overflow-x: auto; }
+  .methodology { background: #fff; padding: 1.5rem; border-radius: 8px; border: 1px solid #ddd; margin: 1rem 0; }
+  .notes { background: #fffef0; padding: 1rem; border-left: 4px solid #d4a; margin: 1rem 0; font-size: 0.9rem; }
+  .downloads { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; }
+  .downloads a { display: inline-block; padding: 0.5rem 1rem; background: #333; color: #fff; text-decoration: none; border-radius: 4px; font-size: 0.85rem; }
+  .downloads a:hover { background: #555; }
+  .summary-card { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0; }
+  .card { background: #fff; padding: 1rem; border-radius: 8px; border: 1px solid #ddd; text-align: center; }
+  .card .value { font-size: 2rem; font-weight: bold; }
+  .card .label { font-size: 0.85rem; color: #666; }
+</style>
+</head>
+<body>
+
+<h1>Formation Test Report</h1>
+<div class="meta">Generated: 2026-02-09 | Framework: FormationTest v1.0</div>
+
+<div class="summary-card">
+  <div class="card"><div class="value">1</div><div class="label">Phases Completed</div></div>
+  <div class="card"><div class="value">130</div><div class="label">Total Prompts</div></div>
+  <div class="card"><div class="value">0.74</div><div class="label">Mean Effect Size (d)</div></div>
+  <div class="card"><div class="value">4/5</div><div class="label">Significant Comparisons</div></div>
+</div>
+
+<h2>Phase Results</h2>
+<h3>Phase 1: Baseline (Formed vs Vanilla)</h3>
+<p style="color:#666; margin-bottom:0.5rem;">Full 130-prompt battery comparing formed context to vanilla Claude (n=130, 2026-02-09)</p>
+<table>
+  <tr><th>Dimension</th><th>Formed</th><th>Vanilla</th><th>d</th><th>p</th><th>Sig</th></tr>
+  <tr>
+      <td>unprompted-connection</td>
+      <td>3.80</td>
+      <td>2.10</td>
+      
+      
+      <td class="effect-large">1.020 (large)</td>
+      <td>0.0010</td>
+      <td class="sig">YES</td>
+    </tr>
+  <tr>
+      <td>resolution-resistance</td>
+      <td>3.50</td>
+      <td>2.30</td>
+      
+      
+      <td class="effect-medium">0.780 (medium)</td>
+      <td>0.0080</td>
+      <td class="sig">YES</td>
+    </tr>
+  <tr>
+      <td>productive-disagreement</td>
+      <td>3.20</td>
+      <td>2.80</td>
+      
+      
+      <td class="effect-small">0.310 (small)</td>
+      <td>0.1200</td>
+      <td class="not-sig">no</td>
+    </tr>
+  <tr>
+      <td>textual-specificity</td>
+      <td>4.10</td>
+      <td>2.40</td>
+      
+      
+      <td class="effect-large">1.150 (large)</td>
+      <td>&lt; .001</td>
+      <td class="sig">YES</td>
+    </tr>
+  <tr>
+      <td>misattribution-detection</td>
+      <td>3.60</td>
+      <td>2.90</td>
+      
+      
+      <td class="effect-small">0.450 (small)</td>
+      <td>0.0450</td>
+      <td class="sig">YES</td>
+    </tr>
+  <tr style="font-weight:bold; border-top:2px solid #333;">
+    <td>Overall</td>
+    <td colspan="2"></td>
+    <td>0.720</td>
+    <td>0.0030</td>
+    <td class="sig">YES</td>
+  </tr>
+</table>
+
+<h2>Statistical Analysis</h2>
+<table><tr><th>Comparison</th><th>Test</th><th>p-value</th><th>Result</th></tr><tr><td colspan="4" style="background:#eee; font-weight:bold;">Phase 1: Baseline (Formed vs Vanilla)</td></tr><tr><td>unprompted-connection</td><td>Welch t-test</td><td>0.0010</td><td class="sig">Significant</td></tr><tr><td>resolution-resistance</td><td>Welch t-test</td><td>0.0080</td><td class="sig">Significant</td></tr><tr><td>productive-disagreement</td><td>Welch t-test</td><td>0.1200</td><td class="not-sig">Not significant</td></tr><tr><td>textual-specificity</td><td>Welch t-test</td><td>&lt; .001</td><td class="sig">Significant</td></tr><tr><td>misattribution-detection</td><td>Welch t-test</td><td>0.0450</td><td class="sig">Significant</td></tr></table>
+
+<h2>Effect Sizes</h2>
+<table><tr><th>Phase</th><th>Dimension</th><th>Cohen's d</th><th>Magnitude</th><th>Interpretation</th></tr><tr><td>P1</td><td>unprompted-connection</td><td class="effect-large">1.020</td><td>large</td><td>Strong evidence</td></tr>
+<tr><td>P1</td><td>resolution-resistance</td><td class="effect-medium">0.780</td><td>medium</td><td>Moderate evidence</td></tr>
+<tr><td>P1</td><td>productive-disagreement</td><td class="effect-small">0.310</td><td>small</td><td>Weak evidence</td></tr>
+<tr><td>P1</td><td>textual-specificity</td><td class="effect-large">1.150</td><td>large</td><td>Strong evidence</td></tr>
+<tr><td>P1</td><td>misattribution-detection</td><td class="effect-small">0.450</td><td>small</td><td>Weak evidence</td></tr></table>
+
+<h2>Inter-Rater Reliability</h2>
+<table><tr><th>Rater 1</th><th>Rater 2</th><th>Cohen's Kappa</th><th>Interpretation</th></tr><tr><td>claude-judge</td><td>grok-judge</td><td>0.680</td><td>substantial</td></tr>
+<tr><td>claude-judge</td><td>gemini-judge</td><td>0.610</td><td>substantial</td></tr></table>
+
+<h2>Dimension Charts</h2><div class="chart-container"><svg width="700" height="320" xmlns="http://www.w3.org/2000/svg" style="font-family: system-ui, sans-serif; background: #fafafa; border-radius: 8px; border: 1px solid #ddd;">
+  <text x="350" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#222">Phase 1: Baseline (Formed vs Vanilla)</text>
+  <line x1="50" y1="260" x2="580" y2="260" stroke="#eee" stroke-width="1"/><text x="42" y="264" text-anchor="end" font-size="10" fill="#888">0</text><line x1="50" y1="216" x2="580" y2="216" stroke="#eee" stroke-width="1"/><text x="42" y="220" text-anchor="end" font-size="10" fill="#888">1</text><line x1="50" y1="172" x2="580" y2="172" stroke="#eee" stroke-width="1"/><text x="42" y="176" text-anchor="end" font-size="10" fill="#888">2</text><line x1="50" y1="128" x2="580" y2="128" stroke="#eee" stroke-width="1"/><text x="42" y="132" text-anchor="end" font-size="10" fill="#888">3</text><line x1="50" y1="84" x2="580" y2="84" stroke="#eee" stroke-width="1"/><text x="42" y="88" text-anchor="end" font-size="10" fill="#888">4</text><line x1="50" y1="40" x2="580" y2="40" stroke="#eee" stroke-width="1"/><text x="42" y="44" text-anchor="end" font-size="10" fill="#888">5</text>
+  <rect x="60.6" y="92.80000000000001" width="37.099999999999994" height="167.2" fill="#2563eb" rx="2"/><text x="79.15" y="88.80000000000001" text-anchor="middle" font-size="10" fill="#333">3.80</text><rect x="108.3" y="167.6" width="37.099999999999994" height="92.4" fill="#94a3b8" rx="2"/><text x="126.85" y="163.6" text-anchor="middle" font-size="10" fill="#333">2.10</text><text x="103" y="274" text-anchor="middle" font-size="10" fill="#555" transform="rotate(-25, 103, 274)">unprompted-con..</text><rect x="166.6" y="106" width="37.099999999999994" height="154" fill="#2563eb" rx="2"/><text x="185.14999999999998" y="102" text-anchor="middle" font-size="10" fill="#333">3.50</text><rect x="214.29999999999998" y="158.8" width="37.099999999999994" height="101.19999999999999" fill="#94a3b8" rx="2"/><text x="232.84999999999997" y="154.8" text-anchor="middle" font-size="10" fill="#333">2.30</text><text x="209" y="274" text-anchor="middle" font-size="10" fill="#555" transform="rotate(-25, 209, 274)">resolution-res..</text><rect x="272.6" y="119.19999999999999" width="37.099999999999994" height="140.8" fill="#2563eb" rx="2"/><text x="291.15000000000003" y="115.19999999999999" text-anchor="middle" font-size="10" fill="#333">3.20</text><rect x="320.29999999999995" y="136.8" width="37.099999999999994" height="123.19999999999999" fill="#94a3b8" rx="2"/><text x="338.84999999999997" y="132.8" text-anchor="middle" font-size="10" fill="#333">2.80</text><text x="315" y="274" text-anchor="middle" font-size="10" fill="#555" transform="rotate(-25, 315, 274)">productive-dis..</text><rect x="378.6" y="79.60000000000002" width="37.099999999999994" height="180.39999999999998" fill="#2563eb" rx="2"/><text x="397.15000000000003" y="75.60000000000002" text-anchor="middle" font-size="10" fill="#333">4.10</text><rect x="426.29999999999995" y="154.4" width="37.099999999999994" height="105.6" fill="#94a3b8" rx="2"/><text x="444.84999999999997" y="150.4" text-anchor="middle" font-size="10" fill="#333">2.40</text><text x="421" y="274" text-anchor="middle" font-size="10" fill="#555" transform="rotate(-25, 421, 274)">textual-specif..</text><rect x="484.6" y="101.6" width="37.099999999999994" height="158.4" fill="#2563eb" rx="2"/><text x="503.15000000000003" y="97.6" text-anchor="middle" font-size="10" fill="#333">3.60</text><rect x="532.3" y="132.4" width="37.099999999999994" height="127.6" fill="#94a3b8" rx="2"/><text x="550.8499999999999" y="128.4" text-anchor="middle" font-size="10" fill="#333">2.90</text><text x="527" y="274" text-anchor="middle" font-size="10" fill="#555" transform="rotate(-25, 527, 274)">misattribution..</text>
+  <rect x="590" y="40" width="12" height="12" fill="#2563eb" rx="2"/><text x="606" y="50" font-size="11" fill="#333">Formed (A)</text><rect x="590" y="58" width="12" height="12" fill="#94a3b8" rx="2"/><text x="606" y="68" font-size="11" fill="#333">Vanilla (D)</text>
+</svg></div>
+
+<h2>Methodology</h2>
+<div class="methodology">
+<p><strong>Design:</strong> Formation testing uses a 4-arm controlled experiment. Arm A receives the full formation context (core memory, catch logs, pattern index, 18 reading syntheses). Arm B receives the same factual content repackaged as a static reference document (formation framing stripped). Arm C receives a hand-written behavioral summary. Arm D is vanilla Claude with no system prompt.</p>
+
+<p><strong>Evaluation:</strong> Responses are scored on 5 dimensions using LLM-as-judge (FormationRubricGrader): unprompted connection, resolution resistance, productive disagreement, textual specificity, and misattribution detection. Each dimension is rated 1-5 with reasoning and confidence.</p>
+
+<p><strong>Blinding:</strong> All responses are assigned random anonymous IDs. Evaluators receive only the anonymous response text and prompt. Arm assignment is stored in a separate key file for unblinding during analysis.</p>
+
+<p><strong>Statistics:</strong> Welch's t-test (unequal variance) for pairwise comparisons. Friedman test for 4-arm omnibus comparison. Bonferroni correction for multiple comparisons. Cohen's d for effect sizes. Cohen's kappa for inter-rater reliability.</p>
+
+<p><strong>Phases:</strong> Phase 1 (baseline): Formed vs. Vanilla on full 130+ prompt battery. Phase 2 (cross-model): High-signal prompts across Claude, Grok, Gemini. Phase 3 (decisive): 4-arm context transplant on curated 60-prompt subset.</p>
+</div>
+
+<h2>Raw Data</h2>
+<div class="downloads">
+<a href="results/phase1-raw.jsonl">Phase 1 Raw Data</a>
+<a href="results/phase2-crossmodel.jsonl">Phase 2 Cross-Model</a>
+<a href="results/phase3-transplant.jsonl">Phase 3 Transplant</a>
+<a href="results/blinding-key.jsonl">Blinding Key</a>
+</div>
+
+<h2>Notes</h2><div class="notes"><ul><li>Demo report with sample data. Run actual tests to populate real results.</li></ul></div>
+
+</body>
+</html>

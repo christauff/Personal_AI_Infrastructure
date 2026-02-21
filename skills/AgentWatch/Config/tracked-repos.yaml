@@ -1,0 +1,88 @@
+# AgentWatch - Tracked Repositories
+# Repos to monitor for security advisories and releases
+# Keep this list SHORT - only repos that affect PAI security posture
+
+frameworks:
+  # Direct dependencies
+  - owner: anthropics
+    repo: anthropic-sdk-python
+    reason: "Direct dependency - Claude API client"
+    priority: critical
+
+  - owner: anthropics
+    repo: anthropic-sdk-typescript
+    reason: "Direct dependency - Claude API client (JS)"
+    priority: critical
+
+  # Architecture patterns we learn from
+  - owner: langchain-ai
+    repo: langchain
+    reason: "Architecture patterns, attack vectors transfer"
+    priority: high
+
+  - owner: langchain-ai
+    repo: langgraph
+    reason: "Orchestration patterns"
+    priority: high
+
+  - owner: crewAIInc
+    repo: crewAI
+    reason: "Multi-agent patterns - primary participation target"
+    priority: high
+
+agent_platforms:
+  # Market leaders - their vulnerabilities inform our defenses
+  - owner: OpenClaw
+    repo: OpenClaw
+    reason: "Market leader, attack patterns affect ecosystem, catastrophic security posture"
+    priority: high
+
+  - owner: significant-gravitas
+    repo: AutoGPT
+    reason: "Historical patterns, still has ecosystem influence"
+    priority: medium
+
+  # TypeScript-native frameworks - closest to PAI architecture
+  - owner: VoltAgent
+    repo: voltagent
+    reason: "TypeScript-native, modular, MCP support, observability-first. Closest PAI architecture match."
+    priority: high
+
+  - owner: mastra-ai
+    repo: mastra
+    reason: "TypeScript-native, Gatsby team, 21K stars, RAG+observability built-in"
+    priority: high
+
+infrastructure:
+  # Tools we use or may use
+  - owner: modelcontextprotocol
+    repo: servers
+    reason: "MCP servers - tool protocol standard"
+    priority: high
+
+  - owner: modelcontextprotocol
+    repo: specification
+    reason: "MCP spec - protocol we implement"
+    priority: high
+
+  - owner: oven-sh
+    repo: bun
+    reason: "Runtime dependency"
+    priority: critical
+
+  - owner: anthropics
+    repo: claude-code
+    reason: "Our execution environment"
+    priority: critical
+
+security_research:
+  # Security-focused repos that publish agent vulnerabilities
+  - owner: protectai
+    repo: rebuff
+    reason: "Prompt injection detection research"
+    priority: medium
+
+  - owner: greshake
+    repo: llm-security
+    reason: "LLM security research and PoCs"
+    priority: medium

@@ -1,0 +1,193 @@
+# Claude Code Content Creators - Monitoring Configuration
+# Created: 2026-01-31
+# Updated: 2026-01-31 (Alpha analysis applied)
+# Approved by: Christauff
+# Purpose: Track Claude Code ecosystem content for PAI learning
+#
+# ALPHA SCORING (applied 2026-01-31):
+#   - PAI Relevance: 40%
+#   - Technical Depth: 25%
+#   - Actionability: 20%
+#   - Freshness: 15%
+
+# ════════════════════════════════════════════════════════════════════════════
+# TIER 1: HIGH ALPHA (80-100) - Daily Priority
+# ════════════════════════════════════════════════════════════════════════════
+
+official_sources:
+  - name: anthropics/claude-code GitHub
+    url: https://github.com/anthropics/claude-code
+    priority: CRITICAL
+    alpha_score: 95
+    check_frequency: daily
+    note: "Primary source of truth. Zero noise. Also monitored by ProtocolWatch"
+
+  - name: Claude Code Docs
+    url: https://code.claude.com/docs/en/overview
+    priority: CRITICAL
+    alpha_score: 85
+    check_frequency: daily
+
+community_sites:
+  - name: ClaudeLog
+    url: https://claudelog.com/
+    priority: CRITICAL
+    alpha_score: 92
+    focus: "Community knowledge base, mechanics, CLAUDE.md practices"
+    check_frequency: daily
+
+medium_writers:
+  - name: JP Caparas
+    url: https://jpcaparas.medium.com/
+    priority: CRITICAL  # Upgraded from HIGH - Boris Cherny access, proven value
+    alpha_score: 88
+    focus: "Best practices, context management, API cost protection, ToS compliance"
+    check_frequency: daily
+    note: "3 actionable insights from single harvest cycle"
+
+# ════════════════════════════════════════════════════════════════════════════
+# TIER 2: GOOD ALPHA (60-79) - Weekly Priority
+# ════════════════════════════════════════════════════════════════════════════
+
+  - name: Gigi Sayfan
+    url: https://medium.com/@the.gigi
+    priority: HIGH
+    alpha_score: 75
+    focus: "Deep dives, CCDD series, experimentation"
+    check_frequency: weekly
+
+  - name: Awesome Claude Code
+    url: https://github.com/hesreallyhim/awesome-claude-code
+    priority: HIGH
+    alpha_score: 72
+    focus: "Skills, hooks, slash-commands, tools curation"
+    check_frequency: weekly  # Demoted from daily
+
+  - name: Joe Njenga
+    url: https://medium.com/@joe.njenga
+    priority: MEDIUM  # Downgraded from HIGH
+    alpha_score: 68
+    focus: "Feature breakdowns, timelines, hackathon coverage"
+    check_frequency: weekly
+
+# ════════════════════════════════════════════════════════════════════════════
+# TIER 3: MEDIUM ALPHA (40-59) - Bi-weekly/Monthly Check
+# ════════════════════════════════════════════════════════════════════════════
+
+  - name: ClaudeCodeLog Twitter
+    url: https://x.com/ClaudeCodeLog
+    priority: MEDIUM  # Downgraded from HIGH - social noise
+    alpha_score: 55
+    check_frequency: weekly
+    note: "GitHub is faster and cleaner"
+
+  - name: Tibor Blaho
+    url: https://medium.com/@btibor91
+    priority: LOW  # Downgraded
+    alpha_score: 52
+    focus: "Changelogs, monthly overviews"
+    check_frequency: monthly
+
+  - name: LM Po
+    url: https://medium.com/@lmpo
+    priority: LOW
+    alpha_score: 45
+    focus: "Historical evolution, platform development"
+    check_frequency: monthly
+
+community_sites_secondary:
+  - name: Awesome Claude Directory
+    url: https://awesomeclaude.ai/awesome-claude-code
+    priority: LOW
+    alpha_score: 42
+    focus: "Visual resource directory"
+    check_frequency: monthly
+
+# ════════════════════════════════════════════════════════════════════════════
+# TIER 4: LOW ALPHA (<40) - Dropped from active monitoring
+# ════════════════════════════════════════════════════════════════════════════
+# These sources are below Christauff's learning edge. Retained for reference
+# but excluded from AutoLearn harvest cycles.
+
+archived_low_alpha:
+  - name: Eren Aktas
+    url: https://medium.com/@erennaktas
+    alpha_score: 38
+    reason: "Safety/productivity guides - already internalized in PAI"
+    status: ARCHIVED
+
+  - name: Vinay Bhaskarla
+    url: https://medium.com/@vinayanand2
+    alpha_score: 35
+    reason: "Non-technical guides - not learning edge"
+    status: ARCHIVED
+
+  - name: Peter Yang
+    platform: YouTube/Newsletter
+    url: https://creatoreconomy.so/
+    alpha_score: 48
+    reason: "Beginner tutorials - low delta for advanced practitioner"
+    status: ARCHIVED
+
+  - name: Carl Vellotti
+    platform: Course
+    url: https://ccforpms.com/
+    alpha_score: 32
+    reason: "PM-focused - irrelevant to technical mastery goals"
+    status: ARCHIVED
+
+  - name: Ayyaz Zafar (AyyazTech)
+    platform: DEV/YouTube
+    url: https://dev.to/ayyazzafar
+    alpha_score: 28
+    reason: "Beginner tutorials"
+    status: ARCHIVED
+
+  - name: Alex Finn
+    platform: Podcast
+    url: https://creators.spotify.com/pod/profile/peter-yang42
+    alpha_score: 40
+    reason: "Life automation focus - tangential to core goals"
+    status: ARCHIVED
+
+  - name: sankalp's blog
+    url: https://sankalp.bearblog.dev/
+    alpha_score: 38
+    reason: "Basic practical tips"
+    status: ARCHIVED
+
+  - name: codewithmukesh
+    url: https://codewithmukesh.com/blog/
+    alpha_score: 22
+    reason: "Beginner guides - no alpha"
+    status: ARCHIVED
+
+  - name: InfoQ Claude Code
+    url: https://www.infoq.com/
+    alpha_score: 30
+    reason: "Industry news - low signal"
+    status: ARCHIVED
+
+# ════════════════════════════════════════════════════════════════════════════
+# MONITORING SCHEDULE (Optimized)
+# ════════════════════════════════════════════════════════════════════════════
+
+schedule:
+  daily:
+    - anthropics/claude-code GitHub  # Alpha 95
+    - ClaudeLog                       # Alpha 92
+    - JP Caparas                      # Alpha 88
+    - Claude Code Docs                # Alpha 85
+  weekly:
+    - Gigi Sayfan                     # Alpha 75
+    - Awesome Claude Code             # Alpha 72
+    - Joe Njenga                      # Alpha 68
+    - ClaudeCodeLog Twitter           # Alpha 55
+  monthly:
+    - Tibor Blaho                     # Alpha 52
+    - LM Po                           # Alpha 45
+    - Awesome Claude Directory        # Alpha 42
+  archived:
+    - All video creators
+    - Non-technical writers
+    - Beginner-focused blogs

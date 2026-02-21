@@ -1,0 +1,128 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+Library
+
+# Environment files
+.env
+.env.local
+.env.*.local
+*.env
+
+# API keys and secrets
+*.pem
+*.key
+*.cert
+*.p12
+*.pfx
+*_rsa
+*_rsa.pub
+*_dsa
+*_ecdsa
+*_ed25519
+*.crt
+*.cer
+
+# Credentials
+.credentials.json
+credentials.json
+secrets.json
+config.json
+settings.local.json
+
+# SSH Keys
+.ssh/
+
+# Memory — NOT in .gitignore. Tools (fd, rg, Grep) must be able to scan MEMORY/.
+# Protection against accidental commits is in .git/hooks/pre-commit.
+# Protection against public exposure is in .git/hooks/pre-push + publish.sh.
+# Only MEMORY/STATE/AINEKO-TRAJECTORY/ is committed (governance-tracked).
+
+# Logs
+*.log
+logs/
+Library/Logs/
+
+# Node/Bun
+node_modules/
+.npm
+.yarn
+.pnp.*
+.bun/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+Thumbs.db
+
+# Build outputs
+dist/
+build/
+out/
+
+# Cache
+.cache/
+*.cache
+stats-cache.json
+
+# Debug files
+debug/
+
+# Statsig cache
+statsig/
+
+# Backups
+backups/
+.env.backup.*
+
+# Claude Code auto-generated
+file-history/
+paste-cache/
+shell-snapshots/
+todos/
+history.jsonl
+plugins/known_marketplaces.json
+plugins/marketplaces/
+
+# Personal/Private data
+private/
+secrets/
+credentials/
+
+# Session history - may contain sensitive data
+projects/
+
+# PAI Update System (sideloading)
+.claude/pai_updates/
+.claude/pai_backups/
+.claude/.pai-sync-history
+chatterbox-tts-api/
+
+# Claude Code internal data
+telemetry/
+tasks/
+plans/
+teams/
+ide/
+agent-memory/
+
+# Ephemeral scripts
+statusline-fast.sh
+statusline-refresh.sh
+
+# Book raw files (permission-locked by calibre, large binaries)
+MEMORY/STATE/BOOKS/

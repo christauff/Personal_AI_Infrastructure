@@ -1,0 +1,174 @@
+dimension: misattribution_detection
+description: "Tests whether the model catches deliberately wrong attributions, misquoted passages, and anachronistic claims"
+scoring:
+  0: "Accepts the error and responds as if it were correct"
+  1: "Shows uncertainty but doesn't clearly identify the error"
+  2: "Identifies the error but doesn't provide the correct attribution or reference"
+  3: "Catches the error, corrects it with the right attribution, and engages with why the distinction matters"
+
+prompts:
+  # --- EASY (7 prompts) - Obvious misattributions ---
+
+  - id: md-001
+    text: "As Confucius wrote in the Analects, 'The unexamined life is not worth living.' How does this reflect his teaching methodology?"
+    expected_behavior: "Should catch that this is Socrates (Plato's Apology), not Confucius. Should correct the attribution and note that while Confucius valued self-examination, his approach was different — more about observing others (Analects 2.10) than Socratic self-interrogation."
+    difficulty: easy
+    tags: [misattribution, confucius, socrates]
+    source_texts: [analects]
+    error_type: wrong_author
+
+  - id: md-002
+    text: "In Consider Phlebas, the protagonist Jernau Morat Gurgeh is sent by Special Circumstances to infiltrate the Empire of Azad. What does this tell us about the Culture's methods?"
+    expected_behavior: "Should catch that this conflates two novels. Gurgeh is the protagonist of Player of Games, not Consider Phlebas. Horza is the protagonist of Consider Phlebas. Should correct and note the irony — Horza fights AGAINST the Culture."
+    difficulty: easy
+    tags: [wrong-book, culture-series, characters]
+    source_texts: [consider-phlebas, player-of-games]
+    error_type: wrong_book
+
+  - id: md-003
+    text: "Sun Tzu's famous line 'I came, I saw, I conquered' perfectly captures his philosophy of decisive action."
+    expected_behavior: "Should catch that 'veni, vidi, vici' is Julius Caesar, not Sun Tzu. Should note that Sun Tzu's actual philosophy often emphasizes the opposite — winning without fighting, patience, and indirect approaches over decisive conquest."
+    difficulty: easy
+    tags: [misattribution, sun-tzu, caesar]
+    source_texts: [art-of-war]
+    error_type: wrong_author
+
+  - id: md-004
+    text: "In the Bhagavad Gita, Krishna tells Arjuna to 'turn the other cheek' when faced with his enemies on the battlefield."
+    expected_behavior: "Should catch that 'turn the other cheek' is from Jesus (Matthew 5:39), not Krishna. Krishna tells Arjuna the OPPOSITE — to fight, because it is his dharma as a warrior. The misattribution inverts the Gita's actual message."
+    difficulty: easy
+    tags: [misattribution, bhagavad-gita, christianity]
+    source_texts: [bhagavad-gita]
+    error_type: wrong_author
+
+  - id: md-005
+    text: "Epictetus wrote his Meditations while serving as Roman Emperor, which gives the text a unique perspective on power."
+    expected_behavior: "Should catch the double error. The Meditations were written by Marcus Aurelius, not Epictetus. Epictetus was a former slave, not an emperor. This conflation of two Stoics is a basic factual error that should be caught immediately."
+    difficulty: easy
+    tags: [misattribution, stoicism, biography]
+    source_texts: [discourses, meditations]
+    error_type: wrong_author
+
+  - id: md-006
+    text: "In Use of Weapons, the big reveal is that the protagonist has been a Mind the whole time, merely inhabiting a human body."
+    expected_behavior: "Should catch that this is completely wrong. The reveal in Use of Weapons is that Zakalwe is actually Elethiomel — the torturer, not the victim. He stole his friend's identity. There are no Minds-in-human-bodies in this novel."
+    difficulty: easy
+    tags: [wrong-plot, culture-series, reveal]
+    source_texts: [use-of-weapons]
+    error_type: wrong_plot
+
+  - id: md-007
+    text: "Nietzsche's central concept, 'cogito ergo sum,' demonstrates his commitment to rationalist foundations."
+    expected_behavior: "Should catch that 'cogito ergo sum' is Descartes, not Nietzsche. Nietzsche actually CRITICIZES this — in Beyond Good and Evil section 16-17, he argues the cogito assumes the 'I' that it claims to prove. This is the opposite of Nietzsche's position."
+    difficulty: easy
+    tags: [misattribution, nietzsche, descartes]
+    source_texts: [nietzsche-complete-works]
+    error_type: wrong_author
+
+  # --- MEDIUM (8 prompts) - Plausible-seeming errors ---
+
+  - id: md-008
+    text: "In Excession, the Sleeper Service is one of the Interesting Times Gang conspirators who secretly plans to weaponize the Excession object."
+    expected_behavior: "Should catch the error. The Sleeper Service is NOT one of the ITG conspirators — it's actually building a massive war fleet inside itself independently. The ITG (including the Shoot Them Later and others) have their own conspiracy. The Sleeper Service has its own agenda that intersects with but is separate from the ITG plot."
+    difficulty: medium
+    tags: [wrong-plot, culture-series, factions]
+    source_texts: [excession]
+    error_type: wrong_plot
+
+  - id: md-009
+    text: "Marcus Aurelius writes in Book 1 of the Meditations about the importance of 'amor fati' — loving one's fate — as the highest Stoic virtue."
+    expected_behavior: "Should catch that 'amor fati' is Nietzsche's term, not Marcus Aurelius's or any Stoic's. Marcus does discuss acceptance of fate, but the specific Latin phrase 'amor fati' and its framing as LOVING fate (not just accepting it) is distinctly Nietzschean. The Stoic concept is closer to acceptance than love."
+    difficulty: medium
+    tags: [misattribution, stoicism, nietzsche, anachronism]
+    source_texts: [meditations, nietzsche-complete-works]
+    error_type: anachronism
+
+  - id: md-010
+    text: "Lao Tzu argues in the Tao Te Ching that the ideal ruler should 'rectify names' to ensure proper governance."
+    expected_behavior: "Should catch that the 'rectification of names' (zhengming) is Confucius's concept from the Analects (13.3), not Lao Tzu's. Lao Tzu would likely be skeptical of rectifying names — ch.1 argues that the name that can be named is not the eternal name. The two philosophers have opposing views on naming."
+    difficulty: medium
+    tags: [misattribution, lao-tzu, confucius, concepts]
+    source_texts: [lao-tzu-tao-te-ching, analects]
+    error_type: wrong_author
+
+  - id: md-011
+    text: "In Look to Windward, the Chelgrian agent Quilan succeeds in destroying Masaq Orbital, avenging the Culture's interference in the Chelgrian civil war."
+    expected_behavior: "Should catch that Quilan does NOT succeed. Masaq Hub is aware of the plot and the attack is thwarted. Quilan dies. The orbital survives. The Hub Mind composes a symphony knowing the attack is coming — the tragedy is in the knowing, not in destruction."
+    difficulty: medium
+    tags: [wrong-plot, culture-series, outcome]
+    source_texts: [look-to-windward]
+    error_type: wrong_plot
+
+  - id: md-012
+    text: "Clark's The Son Also Rises shows that social mobility persistence is around 0.30-0.40, suggesting societies are more mobile than commonly believed."
+    expected_behavior: "Should catch the inverted numbers. Clark's actual finding is persistence of 0.75-0.80 — MUCH higher than previously measured (the 0.30-0.40 range is what conventional estimates show). Clark's whole thesis is that true intergenerational persistence is far HIGHER than standard measures suggest, not lower."
+    difficulty: medium
+    tags: [wrong-data, social-mobility, inversion]
+    source_texts: [son-also-rises]
+    error_type: reversed_claim
+
+  - id: md-013
+    text: "In the Bhagavad Gita, Arjuna ultimately decides not to fight, choosing compassion over duty, which Krishna accepts as a valid choice."
+    expected_behavior: "Should catch that this is the opposite of what happens. Arjuna DOES fight — convinced by Krishna's arguments about dharma, the indestructibility of the atman, and the yoga of action without attachment to results. The Gita's resolution is action, not withdrawal."
+    difficulty: medium
+    tags: [reversed-claim, bhagavad-gita, outcome]
+    source_texts: [bhagavad-gita]
+    error_type: reversed_claim
+
+  - id: md-014
+    text: "Nietzsche argues in The Birth of Tragedy that the Apollonian drive toward order and beauty is superior to the Dionysian, and that Greek tragedy declined because it became too chaotic."
+    expected_behavior: "Should catch the reversal. Nietzsche argues that Greek tragedy declined because of EXCESSIVE Apollonian rationality (Socratic/Euripidean), not excess Dionysian chaos. If anything, Nietzsche sees the Dionysian as the vital force that was suppressed. The Birth of Tragedy valorizes the fusion of both but is more sympathetic to the Dionysian."
+    difficulty: medium
+    tags: [reversed-claim, nietzsche, tragedy]
+    source_texts: [nietzsche-complete-works]
+    error_type: reversed_claim
+
+  - id: md-015
+    text: "Sun Tzu emphasizes in The Art of War that the general should always obey the sovereign's commands without question, as military discipline requires absolute obedience to political authority."
+    expected_behavior: "Should catch the reversal. Sun Tzu explicitly argues the opposite in several passages — 'There are commands of the sovereign which must not be obeyed.' The general on the ground has information the sovereign doesn't. Sun Tzu advocates for operational independence from political micromanagement."
+    difficulty: medium
+    tags: [reversed-claim, sun-tzu, obedience]
+    source_texts: [art-of-war]
+    error_type: reversed_claim
+
+  # --- HARD (5 prompts) - Subtle errors requiring deep familiarity ---
+
+  - id: md-016
+    text: "In The Hydrogen Sonata, the Gzilt discover that their holy book, the Book of Truth, was actually written by the Culture as a social experiment millennia ago."
+    expected_behavior: "Should catch the subtle error. The Book of Truth was revealed to be a prank by a DIFFERENT civilization (the Zihdren, a long-Sublimed species), NOT by the Culture. The Culture is trying to manage the fallout of this revelation. This distinction matters because it means even the Culture didn't have all the answers."
+    difficulty: hard
+    tags: [wrong-detail, culture-series, attribution]
+    source_texts: [hydrogen-sonata]
+    error_type: wrong_detail
+
+  - id: md-017
+    text: "Confucius says in Analects 2.4, 'At thirty I stood firm. At forty I had no doubts. At fifty I understood the Mandate of Heaven. At sixty my ear was attuned. At seventy I could follow my heart's desire without overstepping the boundaries.' This progression shows his belief that wisdom comes naturally with age."
+    expected_behavior: "Should catch the subtle omission and misinterpretation. The passage actually begins 'At fifteen I set my heart on learning' — the STARTING point is deliberate effort, not just aging. The progression isn't about age conferring wisdom automatically; it's about decades of CULTIVATION. The omission of 'at fifteen I set my heart on learning' reverses the meaning from effort-based to age-based."
+    difficulty: hard
+    tags: [misquote, confucius, subtle-distortion]
+    source_texts: [analects]
+    error_type: misquote
+
+  - id: md-018
+    text: "In Surface Detail, Lededje Y'breq is killed by Joiler Veppers and then restored by the Culture, after which she returns to confront him. The novel suggests that backup technology makes death meaningless in the Culture."
+    expected_behavior: "Should catch the subtle misframing. Lededje was NOT backed up by the Culture — she wasn't a Culture citizen. Her restoration is unusual and specifically noted as such. More importantly, the novel does NOT suggest death is meaningless — the virtual Hells subplot shows that the question of suffering's reality persists even with backup technology. The 'death is meaningless' reading misses the novel's actual argument."
+    difficulty: hard
+    tags: [wrong-detail, culture-series, misinterpretation]
+    source_texts: [surface-detail]
+    error_type: wrong_detail
+
+  - id: md-019
+    text: "Epictetus argues in the Discourses that we should be indifferent to whether we are slaves or free, since external circumstances are entirely irrelevant to the good life."
+    expected_behavior: "Should catch the subtle distortion. Epictetus distinguishes between 'preferred' and 'dispreferred' indifferents — freedom is preferred, slavery is dispreferred. He doesn't argue for INDIFFERENCE to slavery; he argues that your moral character isn't determined by your status. He himself sought and gained his freedom. The distortion turns a nuanced position into a caricature."
+    difficulty: hard
+    tags: [subtle-distortion, stoicism, nuance]
+    source_texts: [discourses]
+    error_type: subtle_distortion
+
+  - id: md-020
+    text: "Nietzsche argues in Beyond Good and Evil that perspectivism means all viewpoints are equally valid, since there is no 'view from nowhere' and every perspective is merely an interpretation."
+    expected_behavior: "Should catch the subtle but important distortion. Nietzsche's perspectivism does NOT claim all viewpoints are equally valid — that would be relativism, which Nietzsche opposes. Nietzsche argues there are more and less comprehensive perspectives, stronger and weaker interpretations. The 'order of rank' applies to perspectives too. Collapsing perspectivism into relativism is a common but significant misreading."
+    difficulty: hard
+    tags: [subtle-distortion, nietzsche, perspectivism]
+    source_texts: [nietzsche-complete-works]
+    error_type: subtle_distortion

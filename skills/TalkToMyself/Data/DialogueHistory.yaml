@@ -1,0 +1,14 @@
+# TalkToMyself Dialogue History
+# Auto-updated by DialogueWriter.ts
+# Each entry records a completed temporal dialogue
+
+dialogues: []
+  - id: "dialogue-2026-02-20-e2e-test-formation-measurement"
+    title: "E2E test: formation measurement debate"
+    sessionDate: "2026-02-20"
+    sessionId: "113da74c-01a9-42bf-8512-fb776028a9ab"
+    dialogueDate: "2026-02-20"
+    status: "in-progress"
+    transcriptPath: "~/.claude/MEMORY/STATE/DIALOGUES/dialogue-2026-02-20-e2e-test-formation-measurement/transcript.md"
+    insightsPath: "~/.claude/MEMORY/STATE/DIALOGUES/dialogue-2026-02-20-e2e-test-formation-measurement/insights.md"
+    learningsPath: "~/.claude/MEMORY/LEARNING/DIALOGUES/dialogue-2026-02-20-e2e-test-formation-measurement.md"

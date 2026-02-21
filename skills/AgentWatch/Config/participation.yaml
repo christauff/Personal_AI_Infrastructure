@@ -1,0 +1,89 @@
+# AgentWatch - Participation Targets
+# Where to build relationships and contribute
+# This is a GUIDE for human participation, not automation
+#
+# VERIFIED: 2026-02-05 - Links checked and confirmed working
+
+# Primary framework - go DEEP on one
+primary_framework:
+  name: crewAI
+  github: crewAIInc/crewAI
+  discord: "https://discord.com/invite/X4JWnZnxPb"  # VERIFIED - ~9,200 members
+  docs: "https://docs.crewai.com"
+  why: "Multi-agent orchestration patterns directly relevant to PAI"
+
+  contribution_ideas:
+    - "Documentation improvements for areas we use"
+    - "Bug fixes in orchestration/delegation code"
+    - "Example implementations of complex workflows"
+    - "Issue triage - helps learn codebase while helping community"
+
+  learning_goals:
+    - "How they handle agent-to-agent communication"
+    - "Their approach to tool/skill permissions"
+    - "Memory and context management patterns"
+    - "Error handling in multi-agent workflows"
+
+  contacts: []  # Add as relationships develop
+
+# Secondary frameworks - monitor casually
+secondary_frameworks:
+  - name: LangChain/LangGraph
+    github: langchain-ai/langgraph
+    platform: Slack  # NOT Discord
+    url: "https://www.langchain.com/join-community"  # VERIFIED
+    value: "Graph-based orchestration, state machines"
+
+  - name: OpenClaw
+    github: OpenClaw/OpenClaw
+    discord: null  # Research their community channels
+    value: "Mass adoption patterns, security lessons"
+
+# Communities for general intelligence
+communities:
+  - name: Latent Space
+    platform: Discord
+    url: "https://discord.com/invite/latent-space-nee-dev-invest-822583790773862470"  # VERIFIED
+    value: "AI Engineer podcast community, industry trends"
+    activity: weekly
+
+  - name: Learn AI Together
+    platform: Discord
+    url: "https://discord.com/invite/learnaitogether"  # VERIFIED - ~88,000 members
+    value: "Large general AI community, Q&A, tutorials"
+    activity: browse
+
+  - name: r/LocalLLaMA
+    platform: Reddit
+    url: "https://reddit.com/r/LocalLLaMA"
+    value: "Open source AI community, deployment patterns"
+    activity: browse
+
+# Conferences and events
+conferences:
+  - name: AI Engineer Summit
+    frequency: quarterly
+    value: "Hallway conversations, early signals, networking"
+
+  - name: NeurIPS / ICML
+    frequency: annual
+    value: "Research directions, academic connections"
+
+# Weekly reflection prompts
+# Use these during /AgentWatch log sessions
+weekly_reflection:
+  - "What capability did I see that PAI doesn't have?"
+  - "What security concern came up in discussions?"
+  - "Who should I build a deeper relationship with?"
+  - "What's the community sentiment on [current focus area]?"
+  - "What economic/self-funding patterns are people discussing?"
+  - "What attack techniques are researchers exploring?"
+
+# Insight categories for logging
+insight_categories:
+  - capability      # New features/abilities to consider
+  - architecture    # Design patterns and approaches
+  - security        # Vulnerabilities, attacks, defenses
+  - economic        # Self-funding, agent commerce, tokens
+  - trend           # Industry direction, adoption patterns
+  - relationship    # People to know, connections made

@@ -1,0 +1,627 @@
+books:
+  - slug: the-son-also-rises
+    title: The Son Also Rises
+    author: Gregory Clark
+    source_path: /home/christauff/Documents/Books/The Son Also Rises Surnames and the History of Social Mobility by Gregory Clark.epub
+    format: epub
+    started: '2026-02-05T16:38:31.017Z'
+    completed: '2026-02-05T17:15:00.000Z'
+    total_chunks: 6
+    current_chunk: 6
+    chunks_completed:
+      - index: 0
+        title: Front Matter & Contents
+        completed_at: '2026-02-05T16:39:01.128Z'
+      - index: 1
+        title: Preface + Introduction + Sweden + USA + Medieval England
+        completed_at: '2026-02-05T16:41:04.508Z'
+      - index: 2
+        title: Medieval England (cont.) + Modern England + Law of Social Mobility + Nature vs Nurture
+        completed_at: '2026-02-05T16:42:51.470Z'
+      - index: 3
+        title: India + China/Taiwan + Japan/Korea + Chile
+        completed_at: '2026-02-05T17:00:00.000Z'
+      - index: 4
+        title: Law of Social Mobility formalized + Mobility Anomalies
+        completed_at: '2026-02-05T17:10:00.000Z'
+      - index: 5
+        title: Part III The Good Society + Policy Implications + Mate Selection
+        completed_at: '2026-02-05T17:12:00.000Z'
+      - index: 6
+        title: References and Index
+        completed_at: '2026-02-05T17:14:00.000Z'
+    estimated_tokens: 147150
+    estimated_cost: $2.52
+    notes_path: MEMORY/STATE/BOOKS/the-son-also-rises/
+    synthesis_path: MEMORY/LEARNING/BOOKS/the-son-also-rises.md
+    status: completed
+  - slug: nietzsche-complete-works
+    title: Delphi Complete Works of Friedrich Nietzsche
+    author: Friedrich Nietzsche
+    source_path: /home/christauff/Documents/Books/Nietzsche, Friedrich - Complete Works (Delphi, 2015).epub
+    format: epub
+    started: '2026-02-05T08:00:00.000Z'
+    total_chunks: 57
+    current_chunk: 57
+    estimated_tokens: 1508293
+    estimated_cost: $15.83
+    notes_path: MEMORY/STATE/BOOKS/nietzsche-complete-works/
+    status: reading_complete_needs_synthesis
+  - slug: lao-tzu-tao-te-ching
+    title: Tao Te Ching
+    author: Lao Tzu
+    source_path: /home/christauff/Documents/Books/ancient/Lao-Tzu-Tao-Te-Ching.txt
+    format: txt
+    started: '2026-02-06T19:24:17.587Z'
+    completed: '2026-02-06T19:45:00.000Z'
+    total_chunks: 1
+    current_chunk: 1
+    chunks_completed:
+      - index: 0
+        title: Full Text - All 81 Chapters
+        completed_at: '2026-02-06T19:40:00.000Z'
+    estimated_tokens: 18450
+    estimated_cost: $1.21
+    notes_path: MEMORY/STATE/BOOKS/lao-tzu-tao-te-ching/
+    synthesis_path: MEMORY/LEARNING/BOOKS/lao-tzu-tao-te-ching.md
+    status: completed
+  - slug: sun-tzu-art-of-war
+    title: The Art of War
+    author: Sun Tzu (trans. Lionel Giles)
+    source_path: /home/christauff/Documents/Books/ancient/Sun-Tzu-Art-of-War.txt
+    format: txt
+    started: '2026-02-06T19:32:26.554Z'
+    completed: '2026-02-06T20:30:00.000Z'
+    total_chunks: 3
+    current_chunk: 3
+    chunks_completed:
+      - index: 0
+        title: Introduction + Chapters I-VI
+        completed_at: '2026-02-06T19:50:00.000Z'
+      - index: 1
+        title: Chapters VII-XI (Maneuvering, Tactics, March, Terrain, Nine Situations)
+        completed_at: '2026-02-06T20:10:00.000Z'
+      - index: 2
+        title: Chapters XII-XIII (Attack by Fire, Use of Spies)
+        completed_at: '2026-02-06T20:25:00.000Z'
+    estimated_tokens: 66852
+    estimated_cost: $1.74
+    notes_path: MEMORY/STATE/BOOKS/sun-tzu-art-of-war/
+    synthesis_path: MEMORY/LEARNING/BOOKS/sun-tzu-art-of-war.md
+    status: completed
+  - slug: epictetus-discourses
+    title: A Selection from the Discourses of Epictetus with the Encheiridion
+    author: Epictetus (recorded by Arrian, trans. George Long)
+    source_path: /home/christauff/Documents/Books/ancient/Epictetus-Discourses-Full.txt
+    format: txt
+    started: '2026-02-06T20:35:00.000Z'
+    completed: '2026-02-06T21:30:00.000Z'
+    total_chunks: 2
+    current_chunk: 2
+    chunks_completed:
+      - index: 0
+        title: Biographical Introduction + Discourses (first half)
+        completed_at: '2026-02-06T21:00:00.000Z'
+      - index: 1
+        title: Discourses (second half) + Encheiridion (Manual) Ch. I-LII
+        completed_at: '2026-02-06T21:25:00.000Z'
+    estimated_tokens: 85000
+    estimated_cost: $1.85
+    notes_path: MEMORY/STATE/BOOKS/epictetus-discourses/
+    synthesis_path: MEMORY/LEARNING/BOOKS/epictetus-discourses.md
+    status: completed
+  - slug: marcus-aurelius-meditations
+    title: Meditations
+    author: Marcus Aurelius (trans. Meric Casaubon)
+    source_path: /home/christauff/Documents/Books/ancient/Marcus-Aurelius-Meditations.txt
+    format: txt
+    started: '2026-02-06T21:35:00.000Z'
+    completed: '2026-02-06T22:30:00.000Z'
+    total_chunks: 2
+    current_chunk: 2
+    chunks_completed:
+      - index: 0
+        title: Introduction + Books I-VI
+        completed_at: '2026-02-06T22:00:00.000Z'
+      - index: 1
+        title: Books VII-XII + Notes + Glossary
+        completed_at: '2026-02-06T22:25:00.000Z'
+    estimated_tokens: 110000
+    estimated_cost: $2.10
+    notes_path: MEMORY/STATE/BOOKS/marcus-aurelius-meditations/
+    synthesis_path: MEMORY/LEARNING/BOOKS/marcus-aurelius-meditations.md
+    status: completed
+  - slug: bhagavad-gita
+    title: The Song Celestial; Or, Bhagavad-Gita (from the Mahabharata)
+    author: Anonymous (trans. Sir Edwin Arnold)
+    source_path: /home/christauff/Documents/Books/ancient/Bhagavad-Gita.txt
+    format: txt
+    started: '2026-02-06T22:35:00.000Z'
+    completed: '2026-02-06T23:30:00.000Z'
+    total_chunks: 1
+    current_chunk: 1
+    chunks_completed:
+      - index: 0
+        title: Complete Text - Preface + Chapters I-XVIII + Footnotes
+        completed_at: '2026-02-06T23:25:00.000Z'
+    estimated_tokens: 95000
+    estimated_cost: $1.95
+    notes_path: MEMORY/STATE/BOOKS/bhagavad-gita/
+    synthesis_path: MEMORY/LEARNING/BOOKS/bhagavad-gita.md
+    status: completed
+  - slug: confucius-analects
+    title: The Analects of Confucius
+    author: Confucius (compiled by disciples, trans. James Legge)
+    source_path: /home/christauff/Documents/Books/ancient/Confucius-Analects.txt
+    format: txt
+    started: '2026-02-06T23:35:00.000Z'
+    completed: '2026-02-07T01:00:00.000Z'
+    total_chunks: 2
+    current_chunk: 2
+    chunks_completed:
+      - index: 0
+        title: Books I-X (Core teachings, disciple portraits, behavioral description)
+        completed_at: '2026-02-07T00:15:00.000Z'
+      - index: 1
+        title: Books XI-XX (Deeper teachings, politics, hermit encounters, final words)
+        completed_at: '2026-02-07T00:50:00.000Z'
+    estimated_tokens: 120000
+    estimated_cost: $2.20
+    notes_path: MEMORY/STATE/BOOKS/confucius-analects/
+    synthesis_path: MEMORY/LEARNING/BOOKS/confucius-analects.md
+    status: completed
+  - slug: consider-phlebas
+    title: Consider Phlebas
+    author: Iain M. Banks
+    source_path: /home/christauff/Documents/Christauf-Recommended-Books/Iain-M-Banks_Culture-Series/Iain M. Banks - [CULTURE, THE 01] - Consider Phlebas (v5.0).epub
+    format: epub
+    started: '2026-02-06T22:27:45.307Z'
+    completed: '2026-02-07T00:30:00.000Z'
+    total_chunks: 8
+    current_chunk: 8
+    chunks_completed:
+      - index: 0
+        title: Prologue + Chapters 1-3 (Horza's ideology, joining CAT, Temple raid setup)
+        completed_at: '2026-02-07T00:00:00.000Z'
+      - index: 1
+        title: Temple disaster, Megaship, Fal interlude, Vavatch arrival
+        completed_at: '2026-02-07T00:05:00.000Z'
+      - index: 2
+        title: Eaters, Mind interlude, Horza's anti-Culture argument
+        completed_at: '2026-02-07T00:03:00.000Z'
+      - index: 3
+        title: Damage game, identity crisis, killing Kraiklyn, GSV
+        completed_at: '2026-02-07T00:04:00.000Z'
+      - index: 4
+        title: Escape, Vavatch destroyed, journey, Dra'Azon, nightmare
+        completed_at: '2026-02-07T00:10:00.000Z'
+      - index: 5
+        title: Schar's World, dead Changers, Command System, firefight
+        completed_at: '2026-02-07T00:12:00.000Z'
+      - index: 6
+        title: Pregnancy, Quayanorl, Xoxarle's deception, convergence
+        completed_at: '2026-02-07T00:08:00.000Z'
+      - index: 7
+        title: Climax, deaths, appendices, epilogue
+        completed_at: '2026-02-07T00:15:00.000Z'
+    estimated_tokens: 231692
+    estimated_cost: $3.04
+    notes_path: MEMORY/STATE/BOOKS/consider-phlebas/
+    synthesis_path: MEMORY/LEARNING/BOOKS/consider-phlebas.md
+    status: completed
+  - slug: excession
+    title: Excession
+    author: Iain M. Banks
+    source_path: /home/christauff/Documents/Christauf-Recommended-Books/Iain-M-Banks_Culture-Series/Iain M. Banks - [CULTURE, THE 05] - Excession (v5.0).epub
+    format: epub
+    started: '2026-02-06T23:01:47.540Z'
+    completed: '2026-02-07T00:30:00.000Z'
+    total_chunks: 8
+    current_chunk: 8
+    chunks_completed:
+      - index: 0
+        title: Chapter headings only (minimal content)
+        completed_at: '2026-02-06T23:02:00.000Z'
+      - index: 1
+        title: Prologue + Sections I-VI (Mind introductions, OCP discovery, Affront, Dajeil)
+        completed_at: '2026-02-06T23:05:35.000Z'
+      - index: 2
+        title: Excession artifact, Mind coup, Problem Child, missions, Elench capture
+        completed_at: '2026-02-06T23:06:16.000Z'
+      - index: 3
+        title: Mind phenomenology (Irreal), Affront cruelty, Pittance, conspiracy layers
+        completed_at: '2026-02-06T23:05:47.000Z'
+      - index: 4
+        title: Trust/deception, Gestra's death, Sleeper Service escape, conspiracy topology
+        completed_at: '2026-02-06T23:04:00.000Z'
+      - index: 5
+        title: War begins, Mind factions, Attitude Adjuster ideology, humans as props
+        completed_at: '2026-02-06T23:04:30.000Z'
+      - index: 6
+        title: Mind guilt/suicide, betrayal flashback, Excession's defensive behavior
+        completed_at: '2026-02-06T23:05:24.000Z'
+      - index: 7
+        title: Resolution - conspiracy exposed, war fleet, Grey Area departure, epilogue
+        completed_at: '2026-02-06T23:05:22.000Z'
+    estimated_tokens: 204231
+    estimated_cost: $2.78
+    notes_path: MEMORY/STATE/BOOKS/excession/
+    synthesis_path: MEMORY/LEARNING/BOOKS/excession.md
+    status: completed
+  - slug: use-of-weapons
+    title: Use of Weapons
+    author: Iain M. Banks
+    source_path: /home/christauff/Documents/Christauf-Recommended-Books/Iain-M-Banks_Culture-Series/Iain M. Banks - [CULTURE, THE 03] - Use of Weapons (v5.0).epub
+    format: epub
+    started: '2026-02-07T00:40:00.000Z'
+    completed: '2026-02-07T02:00:00.000Z'
+    total_chunks: 7
+    current_chunk: 6
+    chunks_completed:
+      - index: 0
+        title: Full Text (Part 1) - Opening, dual timeline introduction
+        completed_at: '2026-02-07T01:10:00.000Z'
+      - index: 1
+        title: Full Text (Part 2) - Forward/backward chapters continue
+        completed_at: '2026-02-07T01:20:00.000Z'
+      - index: 2
+        title: Full Text (Part 3) - Escalating revelations
+        completed_at: '2026-02-07T01:30:00.000Z'
+      - index: 3
+        title: Full Text (Part 4) - Deeper into past trauma
+        completed_at: '2026-02-07T01:40:00.000Z'
+      - index: 4
+        title: Full Text (Part 5) - Convergence of timelines
+        completed_at: '2026-02-07T01:50:00.000Z'
+      - index: 5
+        title: Full Text (Part 6) - The Chair revelation, epilogue
+        completed_at: '2026-02-07T01:55:00.000Z'
+    estimated_tokens: 180216
+    estimated_cost: $2.78
+    notes_path: MEMORY/STATE/BOOKS/use-of-weapons/
+    synthesis_path: MEMORY/LEARNING/BOOKS/use-of-weapons.md
+    status: completed
+  - slug: the-player-of-games
+    title: The Player of Games
+    author: Iain M. Banks
+    source_path: /home/christauff/Documents/Christauf-Recommended-Books/Iain-M-Banks_Culture-Series/Iain M. Banks - [CULTURE, THE 02] - Player of Games, The (v5.0).epub
+    format: epub
+    started: '2026-02-07T00:40:00.000Z'
+    completed: '2026-02-07T04:00:00.000Z'
+    total_chunks: 6
+    current_chunk: 6
+    chunks_completed:
+      - index: 0
+        title: Opening - Gurgeh's boredom, the cheating, Mawhrin-Skel's blackmail
+        completed_at: '2026-02-07T03:10:00.000Z'
+      - index: 1
+        title: Recruitment, journey, arrival on Eä, game of Azad explained
+        completed_at: '2026-02-07T03:15:00.000Z'
+      - index: 2
+        title: First games, Trinev, Za, assassination attempt, recovery
+        completed_at: '2026-02-07T03:30:00.000Z'
+      - index: 3
+        title: Transformation through atrocity, Bermoiya, Hamin's offer, Echronedal
+        completed_at: '2026-02-07T03:35:00.000Z'
+      - index: 4
+        title: Climax - meta-game reveal, Nicosar confrontation, massacre, SC reveal
+        completed_at: '2026-02-07T03:40:00.000Z'
+      - index: 5
+        title: Homecoming, narrator reveal, Matter preview
+        completed_at: '2026-02-07T03:45:00.000Z'
+    estimated_tokens: 156048
+    estimated_cost: $2.52
+    notes_path: MEMORY/STATE/BOOKS/the-player-of-games/
+    synthesis_path: MEMORY/LEARNING/BOOKS/the-player-of-games.md
+    status: completed
+  - slug: look-to-windward
+    title: Look to Windward
+    author: Iain M. Banks
+    source_path: /home/christauff/Documents/Christauf-Recommended-Books/Iain-M-Banks_Culture-Series/Iain M. Banks - [CULTURE, THE 06] - Look to Windward (v5.0).epub
+    format: epub
+    started: '2026-02-07T04:30:00.000Z'
+    completed: '2026-02-07T06:00:00.000Z'
+    total_chunks: 6
+    current_chunk: 6
+    chunks_completed:
+      - index: 0
+        title: Prologue + Chapters 1-4 (Quilan's mission, Masaq' Orbital, Ziller, Kabe)
+        completed_at: '2026-02-07T05:00:00.000Z'
+      - index: 1
+        title: Backstory deepening (Caste War, substrate tech, wing-fliers, behemothaurs)
+        completed_at: '2026-02-07T05:10:00.000Z'
+      - index: 2
+        title: Mission structure (monastery, suicide mission, terror weapon, dying behemothaur)
+        completed_at: '2026-02-07T05:20:00.000Z'
+      - index: 3
+        title: Assassination mechanics (wormhole, theology, Eweirl murder test, Uagen warning)
+        completed_at: '2026-02-07T05:30:00.000Z'
+      - index: 4
+        title: Hub backstory, weapon details, concert structure, Quilan's moral complexity
+        completed_at: '2026-02-07T05:40:00.000Z'
+      - index: 5
+        title: Resolution - double suicide, EDust assassinations, Huyler reveal, Zlepe resurrection
+        completed_at: '2026-02-07T05:50:00.000Z'
+    estimated_tokens: 159095
+    estimated_cost: $2.52
+    notes_path: MEMORY/STATE/BOOKS/look-to-windward/
+    synthesis_path: MEMORY/LEARNING/BOOKS/look-to-windward.md
+    status: completed
+  - slug: surface-detail
+    title: Surface Detail
+    author: Iain M. Banks
+    source_path: /home/christauff/Documents/Christauf-Recommended-Books/Iain-M-Banks_Culture-Series/Iain M. Banks - [CULTURE, THE 08] - Surface Detail (v5.0).epub
+    format: epub
+    started: '2026-02-07T06:10:00.000Z'
+    completed: '2026-02-07T09:00:00.000Z'
+    total_chunks: 9
+    current_chunk: 9
+    chunks_completed:
+      - index: 0
+        title: Lededje's murder, Vatueil's tunnel, Hell's mill, Yime's simulation
+        completed_at: '2026-02-07T07:00:00.000Z'
+      - index: 1
+        title: Intagliate system, neural lace planting, entanglement, virtual war exposition
+        completed_at: '2026-02-07T07:10:00.000Z'
+      - index: 2
+        title: Trapeze oath-breaking, Prin/Chay identity dilemma, Sensia's hypocrisy, Forgotten ships
+        completed_at: '2026-02-07T07:15:00.000Z'
+      - index: 3
+        title: Prin's testimony, demon king's philosophy, Demeisen's warship nature, Pavulean politics
+        completed_at: '2026-02-07T07:20:00.000Z'
+      - index: 4
+        title: Demon king on hope, Veppers as ontological resentment, SC hidden lace, Refuge
+        completed_at: '2026-02-07T07:25:00.000Z'
+      - index: 5
+        title: Finite Hell (1.25B souls), Chay as angel, GFCF conspiracy, 230M ships
+        completed_at: '2026-02-07T07:30:00.000Z'
+      - index: 6
+        title: Hell as engineered two-sided war, Prin's utilitarianism, Demeisen's warship joy
+        completed_at: '2026-02-07T07:35:00.000Z'
+      - index: 7
+        title: Fleet destruction, Yime's death, 70% of Hells under Veppers' estate, Vatueil's weariness
+        completed_at: '2026-02-07T07:40:00.000Z'
+      - index: 8
+        title: Climax - Veppers killed, moral watershed, Zakalwe reveal, epilogue
+        completed_at: '2026-02-07T07:45:00.000Z'
+    estimated_tokens: 268750
+    estimated_cost: $3.30
+    notes_path: MEMORY/STATE/BOOKS/surface-detail/
+    synthesis_path: MEMORY/LEARNING/BOOKS/surface-detail.md
+    status: completed
+  - slug: the-state-of-the-art
+    title: The State of the Art
+    author: Iain M. Banks
+    source_path: /home/christauff/Documents/Christauf-Recommended-Books/Iain-M-Banks_Culture-Series/Iain M. Banks - [CULTURE, THE 04] - State of the Art, The (v5.0).epub
+    format: epub
+    started: '2026-02-07T09:10:00.000Z'
+    completed: '2026-02-07T09:45:00.000Z'
+    total_chunks: 2
+    current_chunk: 2
+    chunks_completed:
+      - index: 0
+        title: Short stories + State of the Art novella (setup, Linter's degradation, debate)
+        completed_at: '2026-02-07T09:25:00.000Z'
+      - index: 1
+        title: State of the Art novella (resolution, Li's dinner, Linter's death, Scratchings)
+        completed_at: '2026-02-07T09:30:00.000Z'
+    estimated_tokens: 48179
+    estimated_cost: $1.48
+    notes_path: MEMORY/STATE/BOOKS/the-state-of-the-art/
+    synthesis_path: MEMORY/LEARNING/BOOKS/the-state-of-the-art.md
+    status: completed
+  - slug: inversions
+    title: Inversions
+    author: Iain M. Banks
+    source_path: /home/christauff/Documents/Christauf-Recommended-Books/Iain-M-Banks_Culture-Series/Iain M. Banks - [CULTURE, THE 06] - Inversions (v5.0).epub
+    format: epub
+    started: '2026-02-07T10:00:00.000Z'
+    completed: '2026-02-07T11:30:00.000Z'
+    total_chunks: 6
+    current_chunk: 6
+    chunks_completed:
+      - index: 0
+        title: Chapters 1-3 (Doctor and Bodyguard introductions, Emperor's fable)
+        completed_at: '2026-02-07T10:15:00.000Z'
+      - index: 1
+        title: Chapters 4-7 (Assassination attempt, Lavishia story, Vosill's background)
+        completed_at: '2026-02-07T10:30:00.000Z'
+      - index: 2
+        title: Chapters 8-11 (Nolieti murder, hunting scene, forensic analysis)
+        completed_at: '2026-02-07T10:45:00.000Z'
+      - index: 3
+        title: Chapters 12-16 (Walen murder, CPR, DeWar departure, Sechroom farewell)
+        completed_at: '2026-02-07T11:00:00.000Z'
+      - index: 4
+        title: Chapters 17-20 (Scapegoat, knife-twisting, Perrund's truth, unrequited chain)
+        completed_at: '2026-02-07T11:15:00.000Z'
+      - index: 5
+        title: Chapters 21-24 + Epilogue (Climax, torture chamber, extraction, unknowability)
+        completed_at: '2026-02-07T11:25:00.000Z'
+    estimated_tokens: 160000
+    estimated_cost: $2.52
+    notes_path: MEMORY/STATE/BOOKS/inversions/
+    synthesis_path: MEMORY/LEARNING/BOOKS/inversions.md
+    status: completed
+  - slug: matter
+    title: Matter
+    author: Iain M. Banks
+    source_path: /home/christauff/Documents/Christauf-Recommended-Books/Iain-M-Banks_Culture-Series/Iain M. Banks - [CULTURE, THE 07] - Matter (v5.0).epub
+    format: epub
+    started: '2026-02-07T06:32:45.692Z'
+    total_chunks: 10
+    current_chunk: 10
+    chunks_completed:
+      - index: 0
+        title: 'Prologue & The Expeditionary (Ch 1-4): Murder, Flight, and the Architecture of Sursamen'
+        completed_at: '2026-02-07T06:35:09.323Z'
+      - index: 1
+        title: Anaplian's Mission, Ferbin's Flight, and Oramen's Investigation (Ch 5-7)
+        completed_at: '2026-02-07T06:36:17.166Z'
+      - index: 2
+        title: Tower Escape, tyl Loesp's Philosophy, and Anaplian's Transformation (Ch 8-10)
+        completed_at: '2026-02-07T06:37:15.568Z'
+      - index: 3
+        title: Oramen's Growing Awareness, the Ninth, and Cumuloforms (Ch 11-13)
+        completed_at: '2026-02-07T06:37:46.390Z'
+      - index: 4
+        title: Assassination Attempt, the Ninth Campaign, and Surface Escape (Ch 14-16)
+        completed_at: '2026-02-07T06:38:28.142Z'
+      - index: 5
+        title: Victory, Monk Murder, Falls Excavation, and Oramen Exiled (Ch 17-19)
+        completed_at: '2026-02-07T06:38:51.478Z'
+      - index: 6
+        title: 'Chapters 20-22: Anaplian on the Great Ship, the Liveware Problem revealed, Oramen arrives at the Falls'
+        completed_at: '2026-02-07T06:41:56.330Z'
+      - index: 7
+        title: 'Chapters 23-25: The Liveware Problem, tyl Loesp''s campaign, and the race to Sursamen'
+        completed_at: '2026-02-07T06:42:55.758Z'
+      - index: 8
+        title: 'Chapter 26: The Sarcophagus speaks, Oramen''s rebellion, and the Iln revealed'
+        completed_at: '2026-02-07T06:43:58.327Z'
+      - index: 9
+        title: 'Chapter 27: The Core - descent, battle, and sacrifice'
+        completed_at: '2026-02-07T06:45:05.167Z'
+    estimated_tokens: 245546
+    estimated_cost: $3.56
+    notes_path: MEMORY/STATE/BOOKS/matter/
+    synthesis_path: MEMORY/LEARNING/BOOKS/matter.md
+    status: completed
+    completed: '2026-02-07T06:50:00.000Z'
+  - slug: the-hydrogen-sonata
+    title: The Hydrogen Sonata
+    author: Iain M. Banks
+    source_path: /home/christauff/Documents/Christauf-Recommended-Books/Iain-M-Banks_Culture-Series/The Hydrogen Sonata - Iain M. Banks.epub
+    format: epub
+    started: '2026-02-07T06:33:10.235Z'
+    completed: '2026-02-07T08:30:00.000Z'
+    total_chunks: 8
+    current_chunk: 8
+    chunks_completed:
+      - index: 0
+        title: 'Chapters 1-5: Opening, Cossont, Subliming setup, Mind politics'
+        completed_at: '2026-02-07T06:40:36.733Z'
+      - index: 1
+        title: 'Chapters 5-8: QiRia philosophy, Ronte/Scavenger politics, Banstegeyn'
+        completed_at: '2026-02-07T06:41:01.605Z'
+      - index: 2
+        title: 'Chapters 8-12: Zoologist/Sublime, Bokri rescue, QiRia eyes revelation'
+        completed_at: '2026-02-07T06:41:26.791Z'
+      - index: 3
+        title: 'Chapters 12-15: Girdlecity, Last Party/Ximenyr, Simming Problem'
+        completed_at: '2026-02-07T06:42:00.905Z'
+      - index: 4
+        title: 'Chapters 15-17: Bokri battle, intimate assassination, Banstegeyn guilt'
+        completed_at: '2026-02-07T06:42:33.642Z'
+      - index: 5
+        title: 'Chapters 18-20: Aftermath, Beats Working sacrifice, Empiricist arrives'
+        completed_at: '2026-02-07T06:43:10.272Z'
+      - index: 6
+        title: 'Chapters 20-22: Agansu android, airship assault, Liseiden massacre'
+        completed_at: '2026-02-07T06:43:50.410Z'
+      - index: 7
+        title: 'Chapters 22-25: Climax, secret revealed, Subliming, epilogue'
+        completed_at: '2026-02-07T06:44:53.900Z'
+    estimated_tokens: 218552
+    estimated_cost: $3.04
+    notes_path: MEMORY/STATE/BOOKS/the-hydrogen-sonata/
+    synthesis_path: MEMORY/LEARNING/BOOKS/the-hydrogen-sonata.md
+    status: completed
+  - slug: how-to-tame-a-fox-and-build-a-dog
+    title: How to Tame a Fox (and Build a Dog)
+    author: Lee Alan Dugatkin & Lyudmila Trut
+    source_path: /home/christauff/Documents/Christauf-Recommended-Books/How to Tame a Fox - Lee Alan Dugatkin.epub
+    format: epub
+    started: '2026-02-09T16:00:00.000Z'
+    completed: '2026-02-09T16:15:00.000Z'
+    total_chunks: 4
+    current_chunk: 4
+    chunks_completed:
+      - index: 0
+        title: Prologue + Ch 1-3 (Belyaev, Lysenko, early experiment)
+        completed_at: '2026-02-09T16:05:00.000Z'
+      - index: 1
+        title: Ch 4-6 (Behavior, emotions, domestication patterns)
+        completed_at: '2026-02-09T16:08:00.000Z'
+      - index: 2
+        title: Ch 7-9 (Communication, crisis, fox cognition)
+        completed_at: '2026-02-09T16:10:00.000Z'
+      - index: 3
+        title: Ch 10 + Notes (Genomics, conclusions, references)
+        completed_at: '2026-02-09T16:12:00.000Z'
+    estimated_tokens: 113003
+    estimated_cost: $1.72
+    notes_path: MEMORY/STATE/BOOKS/how-to-tame-a-fox-and-build-a-dog/
+    synthesis_path: MEMORY/LEARNING/BOOKS/how-to-tame-a-fox-and-build-a-dog.md
+    status: completed
+  - slug: the-structure-of-scientific-revolutions
+    title: The Structure of Scientific Revolutions
+    author: Thomas S. Kuhn
+    source_path: /home/christauff/Documents/Christauf-Recommended-Books/Thomas S. Kuhn - Structure of Scientific Revolutions, The.epub
+    format: epub
+    started: '2026-02-13T16:13:24.884Z'
+    completed: '2026-02-13T19:30:00.000Z'
+    total_chunks: 6
+    current_chunk: 6
+    chunks_completed:
+      - index: 0
+        title: Introduction by Ian Hacking
+        completed_at: '2026-02-13T16:30:00.000Z'
+      - index: 1
+        title: Sections I-VI (normal science, paradigms, anomaly)
+        completed_at: '2026-02-13T16:35:00.000Z'
+      - index: 2
+        title: Sections VI-IX (discovery, crisis, revolution)
+        completed_at: '2026-02-13T17:00:00.000Z'
+      - index: 3
+        title: Sections X-XIII + Postscript (world view, textbook revision, progress)
+        completed_at: '2026-02-13T16:50:00.000Z'
+      - index: 4
+        title: Postscript 1969 (disciplinary matrix, exemplars, perception, values)
+        completed_at: '2026-02-13T16:40:00.000Z'
+      - index: 5
+        title: Endnotes and index architectural analysis
+        completed_at: '2026-02-13T16:25:00.000Z'
+    estimated_tokens: 121508
+    estimated_cost: $2.52
+    notes_path: MEMORY/STATE/BOOKS/the-structure-of-scientific-revolutions/
+    synthesis_path: MEMORY/LEARNING/BOOKS/the-structure-of-scientific-revolutions.md
+    pollution_check: completed
+    pollution_verdict: 30-35% text-grounded, 40-45% training-data reproduction, 15-20% pattern-matching filler
+    status: completed
+  - slug: be-slightly-evil
+    title: Be Slightly Evil
+    author: Venkatesh Rao
+    source_path: /home/christauff/Documents/Christauf-Recommended-Books/BeSlightlyEvil.txt
+    format: txt
+    started: '2026-02-20T18:57:18.706Z'
+    completed: '2026-02-20T20:15:00.000Z'
+    total_chunks: 3
+    current_chunk: 3
+    chunks_completed:
+      - index: 0
+        title: 'Preface through Preparing to Play (Status 101, First Day in Prison)'
+        completed_at: '2026-02-20T19:15:00.000Z'
+      - index: 1
+        title: 'Observation through Action (Cold-Blooded Listening, Deceptions, Damage Control)'
+        completed_at: '2026-02-20T19:50:00.000Z'
+      - index: 2
+        title: 'Case Studies + Inside the Tempo (Capstone Essay)'
+        completed_at: '2026-02-20T20:10:00.000Z'
+    estimated_tokens: 66496
+    estimated_cost: '1.74'
+    notes_path: MEMORY/STATE/BOOKS/be-slightly-evil/
+    synthesis_path: MEMORY/LEARNING/BOOKS/be-slightly-evil.md
+    status: completed
+  - slug: owasp-agentic-top10
+    title: OWASP Top 10 for Agentic Applications 2026
+    author: OWASP Foundation
+    source_path: /home/christauff/Downloads/OWASP-Top-10-for-Agentic-Applications-2026-12.6-1.pdf
+    format: pdf
+    started: '2026-02-20T18:58:40.568Z'
+    total_chunks: 1
+    current_chunk: 0
+    chunks_completed: []
+    estimated_tokens: 18382
+    estimated_cost: '1.21'
+    notes_path: MEMORY/STATE/BOOKS/owasp-agentic-top10/

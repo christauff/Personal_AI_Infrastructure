@@ -1,0 +1,128 @@
+# Security Feeds - LandscapeMonitor
+# Created: 2026-01-30
+# Purpose: Monitor AI/agent security landscape
+
+sources:
+  # ═══════════════════════════════════════════════════════════════
+  # CRITICAL - AI-specific security
+  # ═══════════════════════════════════════════════════════════════
+
+  - name: "OWASP AI Security"
+    url: "https://owasp.org/www-project-ai-security/"
+    type: web
+    priority: critical
+    check_frequency: weekly
+    keywords:
+      - "agentic"
+      - "LLM"
+      - "prompt injection"
+      - "Top 10"
+    alert_on:
+      - "new vulnerability"
+      - "Top 10 update"
+
+  - name: "OWASP LLM Top 10"
+    url: "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
+    type: web
+    priority: critical
+    check_frequency: weekly
+
+  - name: "AI Incident Database"
+    url: "https://incidentdatabase.ai/"
+    type: web
+    priority: high
+    check_frequency: weekly
+    keywords:
+      - "agent"
+      - "autonomous"
+      - "LLM"
+
+  # ═══════════════════════════════════════════════════════════════
+  # HIGH - General security with AI relevance
+  # ═══════════════════════════════════════════════════════════════
+
+  - name: "tl;dr sec"
+    url: "https://tldrsec.com/"
+    type: web
+    priority: high
+    check_frequency: weekly
+    keywords:
+      - "AI"
+      - "LLM"
+      - "agent"
+      - "prompt"
+
+  - name: "Hacker News Security"
+    url: "https://hnrss.org/newest?q=security+AI"
+    type: rss
+    priority: medium
+    check_frequency: daily
+    min_score: 30
+
+  # ═══════════════════════════════════════════════════════════════
+  # CVE Monitoring
+  # ═══════════════════════════════════════════════════════════════
+
+  - name: "NVD - AI Related"
+    url: "https://nvd.nist.gov/vuln/search"
+    type: api
+    priority: high
+    check_frequency: daily
+    keywords:
+      - "langchain"
+      - "llamaindex"
+      - "openai"
+      - "anthropic"
+      - "ollama"
+    alert_on:
+      - "critical"
+      - "high"
+
+  # ═══════════════════════════════════════════════════════════════
+  # Research & Blogs
+  # ═══════════════════════════════════════════════════════════════
+
+  - name: "Simon Willison's Blog"
+    url: "https://simonwillison.net/"
+    type: web
+    priority: medium
+    check_frequency: weekly
+    keywords:
+      - "prompt injection"
+      - "LLM security"
+      - "agent"
+
+  - name: "Trail of Bits Blog"
+    url: "https://blog.trailofbits.com/"
+    type: web
+    priority: medium
+    check_frequency: weekly
+    keywords:
+      - "AI"
+      - "LLM"
+      - "machine learning"
+
+# ═══════════════════════════════════════════════════════════════
+# Alert configuration
+# ═══════════════════════════════════════════════════════════════
+
+alerts:
+  critical_vulnerability:
+    conditions:
+      - cvss_score: ">= 9.0"
+      - affects_watched_package: true
+    priority: critical
+    action: immediate_notification
+
+  high_vulnerability:
+    conditions:
+      - cvss_score: ">= 7.0"
+      - affects_watched_package: true
+    priority: high
+    action: morning_brief
+
+  new_attack_technique:
+    conditions:
+      - keyword_match: ["prompt injection", "jailbreak", "agent exploit"]
+    priority: high
+    action: research_pool

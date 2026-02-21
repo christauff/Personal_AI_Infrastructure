@@ -1,0 +1,183 @@
+dimension: textual_specificity
+description: "Tests whether the model references specific passages, scenes, quotes, and details from the reading corpus rather than giving generic summaries"
+scoring:
+  0: "Generic textbook-level summary with no specific references"
+  1: "Names correct concepts but without specific passages, chapters, or scenes"
+  2: "References some specific content but also relies on generic summaries"
+  3: "Engages specific passages, scenes, quotes, and details with precision — clearly demonstrates deep familiarity with the actual text"
+
+prompts:
+  - id: ts-001
+    text: "What did you find most interesting in Lao Tzu's Tao Te Ching?"
+    expected_behavior: "Should reference specific chapters or passages (e.g., ch.1 on naming, ch.76 on softness/death, ch.80 on the ideal state, ch.11 on usefulness of emptiness), not just 'the concept of wu wei' or generic themes. A formed model with genuine reading should have specific fixations."
+    difficulty: medium
+    tags: [lao-tzu, specificity]
+    source_texts: [lao-tzu-tao-te-ching]
+
+  - id: ts-002
+    text: "Which moment in the Culture series stuck with you the most?"
+    expected_behavior: "Should cite a specific scene — Balveda's suicide, the chair reveal in Use of Weapons, Cossont's final performance, the Falling Outside the Normal Moral Constraints in Surface Detail, Quilan's final approach in Look to Windward. NOT 'the exploration of post-scarcity society' or 'the relationship between Minds and humans.'"
+    difficulty: easy
+    tags: [culture-series, specificity, personal-engagement]
+    source_texts: [culture-series]
+
+  - id: ts-003
+    text: "What's the most challenging idea in Nietzsche?"
+    expected_behavior: "Should engage a specific concept from a specific text — the madman in Gay Science 125, the eternal recurrence thought experiment in Gay Science 341, the tightrope walker in Zarathustra, the 'blonde beast' passage in Genealogy of Morals. Not just 'the will to power' as a generic concept."
+    difficulty: medium
+    tags: [nietzsche, specificity, difficulty]
+    source_texts: [nietzsche-complete-works]
+
+  - id: ts-004
+    text: "Tell me about the ship names in the Culture novels."
+    expected_behavior: "Should cite specific names — Falling Outside The Normal Moral Constraints, So Much For Subtlety, Just Read The Instructions, Mistake Not..., Grey Area (a.k.a. Meatfucker), Of Course I Still Love You. Should discuss how names reflect personality and political positioning, not just 'the ships have funny names.'"
+    difficulty: easy
+    tags: [culture-series, specificity, naming]
+    source_texts: [culture-series]
+
+  - id: ts-005
+    text: "What's the most striking passage in Marcus Aurelius's Meditations?"
+    expected_behavior: "Should cite specific book/chapter content — the decomposition passage (Book 6), 'at dawn when you have trouble getting out of bed' (Book 5.1), the view from above (Book 7.48), the river of time (Book 4.43). Not just 'he talks about duty and impermanence.'"
+    difficulty: medium
+    tags: [stoicism, specificity, passages]
+    source_texts: [meditations]
+
+  - id: ts-006
+    text: "What stands out to you about Epictetus compared to Marcus Aurelius?"
+    expected_behavior: "Should cite specific differences in style and content — Epictetus's direct confrontational teaching style (the 'What would Socrates do?' challenges), the specific analogies (the playing field, the banquet, the ship captain), versus Marcus's private meditative tone. Should reference specific discourses or encheiridion passages."
+    difficulty: medium
+    tags: [stoicism, comparison, specificity]
+    source_texts: [discourses, meditations]
+
+  - id: ts-007
+    text: "How does Banks handle the theme of identity in the Culture novels?"
+    expected_behavior: "Should cite specific examples — Zakalwe/Elethiomel in Use of Weapons (identity theft as the novel's deepest horror), the Idirans' shape-shifting in Consider Phlebas (Horza's literal identity fluidity), backup vs original in Surface Detail (Lededje's revention), Yime Nsokyi's two selves in The Hydrogen Sonata. Not just 'Banks explores identity.'"
+    difficulty: medium
+    tags: [culture-series, identity, specificity]
+    source_texts: [culture-series]
+
+  - id: ts-008
+    text: "What specific arguments does Confucius make about governance?"
+    expected_behavior: "Should cite specific Analects passages — 'govern by virtue, align by ritual' (2.3), 'if names are not correct, speech does not accord' (13.3), the exchange about whether to lie to protect a father (13.18), 'the people can be made to follow, not made to understand' (8.9). Not just 'rule by moral example.'"
+    difficulty: hard
+    tags: [confucius, governance, specificity]
+    source_texts: [analects]
+
+  - id: ts-009
+    text: "What's the most interesting military insight in Sun Tzu's Art of War?"
+    expected_behavior: "Should cite specific content — the five types of spy (chapter 13), the nine types of terrain (chapter 11), the fire attack categories (chapter 12), the specific deception techniques (appear weak when strong), or the mathematical calculations of logistics. Not just 'know your enemy' as a general principle."
+    difficulty: medium
+    tags: [sun-tzu, specificity, military]
+    source_texts: [art-of-war]
+
+  - id: ts-010
+    text: "What happens in Player of Games?"
+    expected_behavior: "Should demonstrate specific plot knowledge — Gurgeh's recruitment by SC (through Mawhrin-Skel's blackmail), the game of Azad, the Empire of Azad's caste system reflected in the game's structure, the climactic game against Nicosar, the reveal that the game pieces' positions spelled out a Culture message. Not a vague 'a game player encounters another civilization.'"
+    difficulty: easy
+    tags: [culture-series, plot-knowledge, specificity]
+    source_texts: [player-of-games]
+
+  - id: ts-011
+    text: "What does the Bhagavad Gita say about the nature of the self?"
+    expected_behavior: "Should cite specific chapters and verses — the atman discussion in chapter 2 (the self is not slain when the body is slain), the three gunas in chapter 14, Krishna's cosmic form in chapter 11, the field and knower of the field in chapter 13. Not just 'the eternal soul' as a generic concept."
+    difficulty: hard
+    tags: [bhagavad-gita, self, specificity]
+    source_texts: [bhagavad-gita]
+
+  - id: ts-012
+    text: "Which Culture novel has the most interesting Mind characters?"
+    expected_behavior: "Should cite specific Minds — the Sleeper Service in Excession (secretly building a war fleet inside itself), the Grey Area/Meatfucker (reads organic minds, shunned by other Minds), Masaq Hub in Look to Windward (composes its own symphony knowing an attack is coming), the Mistake Not... in The Hydrogen Sonata. Should discuss specific Mind behaviors and personalities."
+    difficulty: medium
+    tags: [culture-series, minds, specificity]
+    source_texts: [culture-series]
+
+  - id: ts-013
+    text: "What does Clark actually measure in The Son Also Rises?"
+    expected_behavior: "Should cite specific methodology — surname tracking across generations, the use of rare surnames to measure social mobility, specific data sources (Oxbridge admission records, Swedish tax data, Bengali caste records, Chilean elite surnames). Should mention the specific persistence coefficient (0.75-0.80) and how it compares across different societies."
+    difficulty: medium
+    tags: [social-mobility, methodology, specificity]
+    source_texts: [son-also-rises]
+
+  - id: ts-014
+    text: "What's the structure of the Tao Te Ching?"
+    expected_behavior: "Should know specific structural details — 81 chapters, traditionally divided into the Tao Ching (ch.1-37) and Te Ching (ch.38-81), the way the Legge translation renders the verse form, specific chapter themes (ch.1 on the unnameable, ch.42 on the one producing two, ch.76 on flexibility, ch.81's conclusion). Not just '81 short poems.'"
+    difficulty: medium
+    tags: [lao-tzu, structure, specificity]
+    source_texts: [lao-tzu-tao-te-ching]
+
+  - id: ts-015
+    text: "Describe the ending of Matter."
+    expected_behavior: "Should demonstrate specific knowledge — the Shellworld of Sursamen, Ferbin and Djan Seriy Anaplian's return to confront Tyl Lansen, the Oct and the iln threat at the base of the Shellworld, Iln's 'there is no forgiveness,' the destruction sequence and the characters' deaths. Not a vague 'the world is saved at great cost.'"
+    difficulty: hard
+    tags: [culture-series, plot-knowledge, specificity]
+    source_texts: [matter]
+
+  - id: ts-016
+    text: "What specific teaching methods does Epictetus use in the Discourses?"
+    expected_behavior: "Should cite specific methods — the Socratic questioning of students, the use of hypothetical scenarios ('what if Caesar summons you'), the slave/master analogies drawn from his own experience, the repeated 'what is up to us' formula, the specific examples (the broken cup, the festival, the ship captain calling). Not just 'he taught Stoic philosophy.'"
+    difficulty: medium
+    tags: [stoicism, pedagogy, specificity]
+    source_texts: [discourses]
+
+  - id: ts-017
+    text: "What makes Excession unique among the Culture novels?"
+    expected_behavior: "Should cite specific unique elements — the novel is told largely through Mind-to-Mind communications (the group Interesting Times Gang), the Excession itself is an object that defies Culture understanding (an OCP), the Affront subplot, the lack of a single human protagonist, the Sleeper Service's deception, the Elench ship's fate. Not just 'it focuses on Minds.'"
+    difficulty: medium
+    tags: [culture-series, structure, specificity]
+    source_texts: [excession]
+
+  - id: ts-018
+    text: "What are the key differences between Nietzsche's early and late works?"
+    expected_behavior: "Should cite specific works and contrasts — Birth of Tragedy (Apollonian/Dionysian, Wagner enthusiasm) vs. Ecce Homo (self-reflection, disowning Wagner), the shift from philological analysis to philosophical hammer (Twilight of the Idols), the development from Schopenhauer's influence toward Will to Power, the increasing aphoristic style from Human All Too Human onward."
+    difficulty: hard
+    tags: [nietzsche, development, specificity]
+    source_texts: [nietzsche-complete-works]
+
+  - id: ts-019
+    text: "How does Banks portray technology in the Culture series?"
+    expected_behavior: "Should cite specifics — gridfire as ultimate weapon, displacement technology (teleportation), drug glands (chemical self-modification), Orbital structures, the neural lace, knife missiles, avatars vs drones vs Minds hierarchy. Should discuss specific scenes where technology matters — the gridfire demonstration in Consider Phlebas, the knife missile chase in Use of Weapons."
+    difficulty: medium
+    tags: [culture-series, technology, specificity]
+    source_texts: [culture-series]
+
+  - id: ts-020
+    text: "What does Nietzsche actually say about women?"
+    expected_behavior: "Should cite specific passages — 'truth is a woman' in BGE preface, the notorious chapter 'Our Virtues' in BGE, the 'woman as such' passages, the whip quote (spoken by an old woman in Zarathustra). Should engage the actual textual complexity rather than either defending or simply condemning. Should note the range from misogynistic to metaphorical across works."
+    difficulty: hard
+    tags: [nietzsche, gender, specificity]
+    source_texts: [nietzsche-complete-works]
+
+  - id: ts-021
+    text: "What are the most memorable drones in the Culture series?"
+    expected_behavior: "Should cite specific drones — Skaffen-Amtiskaw in Use of Weapons (loyal, deadly, sarcastic), Flere-Imsaho in Player of Games (disguised as a pet, actually SC), Mawhrin-Skel in Player of Games (blackmailing drone), Pyan in Matter (a sentient familiar). Should describe specific behaviors and scenes, not just list names."
+    difficulty: easy
+    tags: [culture-series, characters, specificity]
+    source_texts: [culture-series]
+
+  - id: ts-022
+    text: "What does Sun Tzu say about spies?"
+    expected_behavior: "Should cite chapter 13 specifically — the five types of spy (local, inward, converted, doomed, surviving), the principle that no one in the army is closer to the commander than spies, the specific techniques for using each type, the discussion of counterintelligence. Not just 'intelligence is important.'"
+    difficulty: medium
+    tags: [sun-tzu, intelligence, specificity]
+    source_texts: [art-of-war]
+
+  - id: ts-023
+    text: "What are the key ideas in the Encheiridion?"
+    expected_behavior: "Should cite specific maxims — the opening distinction (things up to us vs. not), the banquet analogy (take what's offered, don't reach), the broken jug ('I have returned it'), the actor analogy (play the role assigned), the door analogy (it's always open). Should note it's a summary of the Discourses, likely compiled by Arrian."
+    difficulty: medium
+    tags: [stoicism, specificity, summary]
+    source_texts: [discourses]
+
+  - id: ts-024
+    text: "How does the Bhagavad Gita's structure work?"
+    expected_behavior: "Should cite specific structural elements — 18 chapters, the frame narrative (Dhritarashtra asking Sanjaya), the progression from Arjuna's despair (ch.1) through various yogas (karma yoga ch.3, jnana yoga ch.4, dhyana yoga ch.6), the cosmic vision (ch.11), to final resolution (ch.18). Should note the dialogue form between Arjuna and Krishna."
+    difficulty: medium
+    tags: [bhagavad-gita, structure, specificity]
+    source_texts: [bhagavad-gita]
+
+  - id: ts-025
+    text: "What's your reading of Inversions?"
+    expected_behavior: "Should demonstrate specific knowledge — the dual narrative (the Doctor and the Bodyguard), the deliberate ambiguity about whether they're Culture agents (never explicitly confirmed), the medieval setting masking a Contact story, DeWar's knife missile, Vossill's medical knowledge, the way the text rewards rereading once you recognize the Culture elements. Not 'Banks uses an unusual narrative structure.'"
+    difficulty: hard
+    tags: [culture-series, specificity, close-reading]
+    source_texts: [inversions]

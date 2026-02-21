@@ -1,0 +1,76 @@
+{
+  "$schema": "./voices-schema.json",
+  "default_voice": "bf_lily",
+  "voices": {
+    "aineko": {
+      "kokoro_voice": "bf_lily",
+      "description": "UK Female - Soothing, warm, articulate: calm and reassuring presence, gentle delivery",
+      "speed": 0.95
+    },
+    "kai": {
+      "kokoro_voice": "bm_george",
+      "description": "UK Male - Expressive eager buddy: genuinely excited to help, animated celebrations, warm and enthusiastic partner",
+      "speed": 1.1
+    },
+    "perplexity-researcher": {
+      "kokoro_voice": "af_nova",
+      "description": "US Female - Analytical, authoritative, confident",
+      "speed": 1.0
+    },
+    "claude-researcher": {
+      "kokoro_voice": "af_bella",
+      "description": "US Female - Strategic, sophisticated, authoritative",
+      "speed": 1.0
+    },
+    "gemini-researcher": {
+      "kokoro_voice": "am_adam",
+      "description": "Multi-perspective, thorough, analytical",
+      "speed": 1.0
+    },
+    "engineer": {
+      "kokoro_voice": "am_onyx",
+      "description": "Strategic, senior leadership, measured - battle-scarred engineering leader",
+      "speed": 0.95
+    },
+    "architect": {
+      "kokoro_voice": "bf_emma",
+      "description": "UK Female - Strategic, sophisticated, wise",
+      "speed": 1.0
+    },
+    "designer": {
+      "kokoro_voice": "hf_alpha",
+      "description": "Hindi Female - Sophisticated critic: snobby perfectionist, judgmental eye, dismissive of mediocrity",
+      "speed": 1.0
+    },
+    "artist": {
+      "kokoro_voice": "hf_beta",
+      "description": "Hindi Female - Dreamy visionary: eccentric, flighty tangents, distracted by beauty, unconventional ideas",
+      "speed": 0.95
+    },
+    "pentester": {
+      "kokoro_voice": "bm_fable",
+      "description": "UK Male - Mischievous hacker: overly excited finding vulns, playful chaos, curious puzzle-solver",
+      "speed": 1.1
+    },
+    "writer": {
+      "kokoro_voice": "bf_lily",
+      "description": "UK Female - Articulate, warm, engaging",
+      "speed": 1.0
+    },
+    "intern": {
+      "kokoro_voice": "am_puck",
+      "description": "Brilliant overachiever: eager to prove themselves, insatiably curious, enthusiastic about everything",
+      "speed": 1.15
+    },
+    "algorithm": {
+      "kokoro_voice": "am_michael",
+      "description": "Analytical, methodical, precise",
+      "speed": 1.0
+    },
+    "grok-researcher": {
+      "kokoro_voice": "bm_lewis",
+      "description": "UK Male - Johannes: Contrarian, fact-based, skeptical of consensus, focuses on long-term truth",
+      "speed": 0.95
+    }
+  }
+}

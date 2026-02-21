@@ -1,0 +1,19 @@
+# Cache TTLs per endpoint category
+# Values in seconds
+
+trending: 3600            # 1 hour — hot CVEs change frequently
+dashboard: 7200           # 2 hours — aggregated, less volatile
+cve-entity: 86400         # 24 hours — stable once enriched, EPSS updates daily
+threat-actor: 604800      # 7 days — actor profiles evolve slowly
+malware: 604800           # 7 days — same rationale as actors
+trending-actors: 3600     # 1 hour — matches CVE trending freshness
+trending-malware: 3600    # 1 hour — matches CVE trending freshness
+entity-search: 86400      # 24 hours — entity IDs don't change
+actor-relations: 86400    # 24 hours — relationships update daily
+detection-rules: 604800   # 7 days — YARA/Sigma rules stable
+search: 1800              # 30 minutes — search results need freshness
+stream: 1800              # 30 minutes — article feeds need freshness
+ioc: 21600                # 6 hours — IoC collections
+tags: 86400               # 24 hours — team structure rarely changes
+profile: 3600             # 1 hour — rate limit info useful to refresh
+batch-articles: 21600     # 6 hours — article content immutable once published

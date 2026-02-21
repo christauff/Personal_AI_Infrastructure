@@ -1,0 +1,295 @@
+# Apify Actor Registry
+# Defines all available actors, their triggers, and routing metadata
+
+version: "1.0.0"
+updatedAt: "2026-02-04"
+
+actors:
+  # ============================================================================
+  # SOCIAL MEDIA
+  # ============================================================================
+
+  twitter:
+    id: "apidojo/twitter-scraper-lite"
+    name: "Twitter/X Scraper"
+    category: social-media
+    triggers:
+      - twitter
+      - x.com
+      - tweet
+      - "@"
+    urlPatterns:
+      - "(?:twitter\\.com|x\\.com)/\\w+"
+      - "(?:twitter\\.com|x\\.com)/\\w+/status/\\d+"
+    capabilities:
+      - profile
+      - posts
+      - search
+      - tweet
+      - timeline
+    costPer1k: 0.50
+    cacheTtl: 3600
+    wrapper: social-media/twitter.ts
+    implemented: true
+    notes: "Supports direct tweet URLs, profile scraping, and search"
+
+  instagram:
+    id: "apify/instagram-profile-scraper"
+    name: "Instagram Scraper"
+    category: social-media
+    triggers:
+      - instagram
+      - ig
+      - insta
+    urlPatterns:
+      - "instagram\\.com/\\w+"
+      - "instagram\\.com/p/\\w+"
+    capabilities:
+      - profile
+      - posts
+      - hashtags
+      - comments
+    costPer1k: 0.75
+    cacheTtl: 3600
+    wrapper: social-media/instagram.ts
+    implemented: true
+    notes: "Multiple sub-actors: profile, post, hashtag, comment scrapers"
+
+  linkedin:
+    id: "dev_fusion/Linkedin-Profile-Scraper"
+    name: "LinkedIn Scraper"
+    category: social-media
+    triggers:
+      - linkedin
+      - li
+    urlPatterns:
+      - "linkedin\\.com/in/\\w+"
+      - "linkedin\\.com/company/\\w+"
+      - "linkedin\\.com/jobs"
+    capabilities:
+      - profile
+      - posts
+      - jobs
+    costPer1k: 1.00
+    cacheTtl: 7200
+    wrapper: social-media/linkedin.ts
+    implemented: true
+    notes: "Multiple sub-actors: profile, jobs, posts scrapers"
+
+  facebook:
+    id: "apify/facebook-posts-scraper"
+    name: "Facebook Scraper"
+    category: social-media
+    triggers:
+      - facebook
+      - fb
+    urlPatterns:
+      - "facebook\\.com/\\w+"
+      - "facebook\\.com/groups/\\w+"
+    capabilities:
+      - posts
+      - comments
+      - profile
+    costPer1k: 0.80
+    cacheTtl: 3600
+    wrapper: social-media/facebook.ts
+    implemented: true
+    notes: "Multiple sub-actors: posts, groups, comments scrapers"
+
+  tiktok:
+    id: "clockworks/tiktok-profile-scraper"
+    name: "TikTok Scraper"
+    category: social-media
+    triggers:
+      - tiktok
+      - tt
+    urlPatterns:
+      - "tiktok\\.com/@\\w+"
+      - "tiktok\\.com/tag/\\w+"
+    capabilities:
+      - profile
+      - posts
+      - hashtags
+      - comments
+    costPer1k: 0.80
+    cacheTtl: 3600
+    wrapper: social-media/tiktok.ts
+    implemented: true
+    notes: "Multiple sub-actors: profile, hashtag, comments scrapers"
+
+  youtube:
+    id: "streamers/youtube-channel-scraper"
+    name: "YouTube Scraper"
+    category: social-media
+    triggers:
+      - youtube
+      - yt
+      - video
+    urlPatterns:
+      - "youtube\\.com/watch\\?v=\\w+"
+      - "youtube\\.com/channel/\\w+"
+      - "youtube\\.com/@\\w+"
+      - "youtu\\.be/\\w+"
+    capabilities:
+      - profile
+      - posts
+      - comments
+      - search
+    costPer1k: 0.60
+    cacheTtl: 7200
+    wrapper: social-media/youtube.ts
+    implemented: true
+    notes: "Multiple sub-actors: channel, video, comments scrapers"
+
+  # ============================================================================
+  # BUSINESS INTELLIGENCE
+  # ============================================================================
+
+  google-maps:
+    id: "compass/crawler-google-places"
+    name: "Google Maps Scraper"
+    category: business
+    triggers:
+      - google maps
+      - places
+      - restaurant
+      - business near
+      - local business
+    urlPatterns:
+      - "google\\.com/maps"
+      - "maps\\.google\\.com"
+    capabilities:
+      - places
+      - reviews
+      - details
+      - search
+    costPer1k: 0.40
+    cacheTtl: 86400
+    wrapper: business/google-maps.ts
+    implemented: true
+    notes: "Also uses compass/Google-Maps-Reviews-Scraper for reviews"
+
+  crunchbase:
+    id: "epctex/crunchbase-scraper"
+    name: "Crunchbase Scraper"
+    category: business
+    triggers:
+      - crunchbase
+      - startup
+      - funding
+      - investor
+      - venture
+    urlPatterns:
+      - "crunchbase\\.com/organization/\\w+"
+    capabilities:
+      - profile
+      - details
+    costPer1k: 1.50
+    cacheTtl: 86400
+    implemented: false
+    notes: "Not yet implemented - company/funding data"
+
+  glassdoor:
+    id: "epctex/glassdoor-scraper"
+    name: "Glassdoor Scraper"
+    category: business
+    triggers:
+      - glassdoor
+      - salary
+      - company reviews
+      - interview questions
+    urlPatterns:
+      - "glassdoor\\.com/Reviews"
+      - "glassdoor\\.com/Salary"
+    capabilities:
+      - reviews
+      - details
+    costPer1k: 1.20
+    cacheTtl: 86400
+    implemented: false
+    notes: "Not yet implemented - company reviews, salaries"
+
+  # ============================================================================
+  # E-COMMERCE
+  # ============================================================================
+
+  amazon:
+    id: "junglee/free-amazon-product-scraper"
+    name: "Amazon Scraper"
+    category: ecommerce
+    triggers:
+      - amazon
+      - amzn
+      - product
+    urlPatterns:
+      - "amazon\\.[a-z]+/dp/\\w+"
+      - "amazon\\.[a-z]+/gp/product/\\w+"
+    capabilities:
+      - products
+      - reviews
+      - search
+      - pricing
+    costPer1k: 0.50
+    cacheTtl: 7200
+    wrapper: ecommerce/amazon.ts
+    implemented: true
+    notes: "Also uses axesso_data/amazon-reviews-scraper for reviews"
+
+  ebay:
+    id: "dtrungtin/ebay-scraper"
+    name: "eBay Scraper"
+    category: ecommerce
+    triggers:
+      - ebay
+      - auction
+    urlPatterns:
+      - "ebay\\.[a-z]+/itm/\\d+"
+    capabilities:
+      - products
+      - sellers
+      - pricing
+    costPer1k: 0.45
+    cacheTtl: 3600
+    implemented: false
+    notes: "Not yet implemented - product listings, bids"
+
+  # ============================================================================
+  # WEB UTILITIES
+  # ============================================================================
+
+  web-scraper:
+    id: "apify/web-scraper"
+    name: "Generic Web Scraper"
+    category: web
+    triggers:
+      - scrape
+      - extract
+      - crawl
+      - webpage
+    urlPatterns: []
+    capabilities:
+      - scrape
+      - crawl
+      - extract
+    costPer1k: 0.30
+    cacheTtl: 3600
+    wrapper: web/web-scraper.ts
+    implemented: true
+    notes: "Fallback for URLs that don't match specialized actors"
+
+  google-search:
+    id: "apify/google-search-scraper"
+    name: "Google Search Scraper"
+    category: web
+    triggers:
+      - google search
+      - serp
+      - search results
+    urlPatterns:
+      - "google\\.com/search"
+    capabilities:
+      - search
+    costPer1k: 0.25
+    cacheTtl: 1800
+    implemented: false
+    notes: "Not yet implemented - SERP scraping"

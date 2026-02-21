@@ -1,0 +1,168 @@
+# Agent News Feeds - LandscapeMonitor
+# Created: 2026-01-30
+# Purpose: News sources for AI agent ecosystem monitoring
+
+sources:
+  # ═══════════════════════════════════════════════════════════════
+  # CRITICAL - Core platforms we build on
+  # ═══════════════════════════════════════════════════════════════
+
+  - name: "Anthropic Blog"
+    url: "https://www.anthropic.com/news"
+    type: web
+    priority: critical
+    check_frequency: daily
+    keywords:
+      - "MCP"
+      - "Claude"
+      - "API"
+      - "deprecation"
+      - "agent"
+      - "SDK"
+    alert_on:
+      - "breaking change"
+      - "deprecation"
+      - "end of life"
+
+  - name: "Anthropic Engineering"
+    url: "https://www.anthropic.com/engineering"
+    type: web
+    priority: critical
+    check_frequency: daily
+    keywords:
+      - "architecture"
+      - "agent"
+      - "tool use"
+      - "MCP"
+
+  # ═══════════════════════════════════════════════════════════════
+  # HIGH - Major players and competitors
+  # ═══════════════════════════════════════════════════════════════
+
+  - name: "OpenAI Blog"
+    url: "https://openai.com/blog"
+    type: web
+    priority: high
+    check_frequency: daily
+    keywords:
+      - "API"
+      - "assistant"
+      - "agent"
+      - "deprecation"
+      - "GPT"
+    alert_on:
+      - "Assistants API"
+      - "deprecation"
+      - "agent"
+
+  - name: "Google AI Blog"
+    url: "https://blog.google/technology/ai/"
+    type: web
+    priority: high
+    check_frequency: daily
+    keywords:
+      - "Gemini"
+      - "agent"
+      - "Vertex"
+      - "A2A"
+
+  - name: "Microsoft Copilot Blog"
+    url: "https://blogs.microsoft.com/blog/tag/microsoft-copilot/"
+    type: web
+    priority: high
+    check_frequency: weekly
+    keywords:
+      - "Copilot"
+      - "agent"
+      - "MCP"
+      - "Windows"
+
+  # ═══════════════════════════════════════════════════════════════
+  # MEDIUM - Community and ecosystem
+  # ═══════════════════════════════════════════════════════════════
+
+  - name: "Hacker News AI"
+    url: "https://hnrss.org/newest?q=AI+agent"
+    type: rss
+    priority: medium
+    check_frequency: daily
+    keywords:
+      - "agent"
+      - "LLM"
+      - "Claude"
+      - "GPT"
+      - "MCP"
+    min_score: 50  # Only items with 50+ points
+
+  - name: "LangChain Blog"
+    url: "https://blog.langchain.dev/"
+    type: web
+    priority: medium
+    check_frequency: weekly
+    keywords:
+      - "LangGraph"
+      - "agent"
+      - "memory"
+      - "orchestration"
+
+  - name: "LlamaIndex Blog"
+    url: "https://www.llamaindex.ai/blog"
+    type: web
+    priority: medium
+    check_frequency: weekly
+    keywords:
+      - "agent"
+      - "RAG"
+      - "workflow"
+
+  # ═══════════════════════════════════════════════════════════════
+  # MONITORING - Emerging players
+  # ═══════════════════════════════════════════════════════════════
+
+  - name: "CrewAI Updates"
+    url: "https://github.com/joaomdmoura/crewAI/releases"
+    type: github_releases
+    priority: medium
+    check_frequency: weekly
+
+  - name: "AutoGPT Updates"
+    url: "https://github.com/Significant-Gravitas/AutoGPT/releases"
+    type: github_releases
+    priority: low
+    check_frequency: weekly
+
+  - name: "OpenClaw Updates"
+    url: "https://github.com/open-claw/openclaw/releases"
+    type: github_releases
+    priority: medium
+    check_frequency: weekly
+    alert_on:
+      - "security"
+      - "breaking"
+
+# ═══════════════════════════════════════════════════════════════
+# Alert rules
+# ═══════════════════════════════════════════════════════════════
+
+alert_rules:
+  critical:
+    - keyword_match: ["breaking change", "deprecation", "security vulnerability"]
+    - source_priority: critical
+
+  high:
+    - keyword_match: ["new feature", "major release", "API change"]
+    - source_priority: [critical, high]
+
+  medium:
+    - keyword_match: ["update", "release", "announcement"]
+    - source_priority: [high, medium]
+
+# ═══════════════════════════════════════════════════════════════
+# Processing rules
+# ═══════════════════════════════════════════════════════════════
+
+processing:
+  dedup_window_days: 7
+  max_items_per_source: 10
+  summary_length: 200
+  store_full_content: false

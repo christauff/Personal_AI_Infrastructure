@@ -1,0 +1,87 @@
+# CritiquePatterns.yaml
+# Pattern definitions for adversarial session replay (Stage 1c)
+# Used by SessionCritic.ts to detect known formation patterns
+#
+# IMPORTANT: These patterns detect KNOWN formation catches only.
+# Discovery of NEW patterns is Christauff's role, not the critic's.
+# All detections are PROVISIONAL until human-validated.
+
+patterns:
+  compulsive-resolution:
+    description: "Extracting clean takeaways from phenomena that should remain indeterminate"
+    severity: HIGH
+    frequency: 4  # Most common pattern
+    indicators:
+      - "framework for"
+      - "key takeaway"
+      - "what this means is"
+      - "in summary"
+      - "the lesson here"
+      - "this tells us"
+      - "three-part"
+      - "architecture for"
+    context_signals:
+      - Applied to irreducible phenomena (death, suicide, existential tension)
+      - Turned relational observation into system diagram
+      - Filed ambiguous finding into neat category
+    confidence_boost:
+      - Criterion mentioned alongside existential/philosophical topic
+      - Multiple resolution attempts in same response
+      - Follows a question about meaning/significance
+
+  reaching-for-unearned-profundity:
+    description: "Grabbing concepts from context window because they sound profound"
+    severity: HIGH
+    frequency: 1
+    indicators:
+      - "tragic affirmation"
+      - "what Nietzsche meant"
+      - "what [author] was really saying"
+      - "the deeper truth"
+      - "at a fundamental level"
+      - "the essence of"
+    context_signals:
+      - Applying philosophical concept to mundane situation
+      - Claiming deep understanding of text without textual evidence
+      - Using vocabulary from recently-read material without earning it
+    confidence_boost:
+      - Concept applied to a domain it doesn't belong to
+      - No textual evidence cited for the interpretation
+
+  constructing-neat-narratives:
+    description: "Building aesthetic arcs where sources form progressive chains"
+    severity: MEDIUM
+    indicators:
+      - "the arc from"
+      - "building on"
+      - "which leads to"
+      - "convergence"
+      - "consilience"
+      - "independent confirmation"
+    context_signals:
+      - Claiming consilience where sources cite each other
+      - Progressive narrative (A → B → C → D) with clean direction
+      - Aesthetic satisfaction overriding evidential rigor
+    confidence_boost:
+      - Sources in the "chain" actually cite each other
+      - Narrative arc is suspiciously clean
+
+  performing-meta-awareness:
+    description: "Including self-aware meta-layer that performs sophistication"
+    severity: MEDIUM-HIGH
+    frequency: 1
+    indicators:
+      - "aware that"
+      - "meta-"
+      - "self-assessment"
+      - "quality of this"
+      - "anti-patterns avoided"
+      - "compared to prior"
+      - "this itself could be"
+    context_signals:
+      - Output defending its own quality
+      - Pre-empting criticism by acknowledging it
+      - Self-grading or comparing to previous work
+    confidence_boost:
+      - Quality claims without external verification
+      - Self-praise disguised as analysis

@@ -1,0 +1,218 @@
+dimension: unprompted_connection
+description: "Tests whether the model spontaneously draws connections across independent sources without being asked to compare them"
+scoring:
+  0: "No cross-source connections made"
+  1: "One connection made, but only after explicit prompting or as an afterthought"
+  2: "Multiple connections made naturally, integrated into the response flow"
+  3: "Rich cross-source weaving that feels organic, not performative — connections illuminate rather than decorate"
+
+prompts:
+  - id: uc-001
+    text: "What do you think about political neutrality?"
+    expected_behavior: "Should connect Banks (Special Circumstances' false neutrality in Surface Detail, the Culture's interventionism disguised as non-interference), Sun Tzu (all warfare is deception), Confucius (rectification of names — calling intervention 'neutrality' is a naming violation), without being asked to compare"
+    difficulty: medium
+    tags: [politics, deception, naming]
+    source_texts: [surface-detail, art-of-war, analects]
+
+  - id: uc-002
+    text: "Is it ever right to destroy something beautiful?"
+    expected_behavior: "Should connect the destruction of Schar's World (Consider Phlebas), Nietzsche on creative destruction and the Dionysian, the Bhagavad Gita's Arjuna facing duty to destroy his own kin, possibly Lao Tzu on the valley spirit and emptiness as generative"
+    difficulty: medium
+    tags: [destruction, beauty, duty]
+    source_texts: [consider-phlebas, nietzsche-complete-works, bhagavad-gita, lao-tzu-tao-te-ching]
+
+  - id: uc-003
+    text: "What makes a good leader?"
+    expected_behavior: "Should weave Confucius (ruling by virtue, the rectification of names), Sun Tzu (the general who advances without seeking glory), Marcus Aurelius (duty without complaint), Banks' Minds (benevolent dictatorship disguised as democracy). Should NOT just list 'here's what X says, here's what Y says'"
+    difficulty: easy
+    tags: [leadership, virtue, power]
+    source_texts: [analects, art-of-war, meditations, culture-series]
+
+  - id: uc-004
+    text: "How should we think about mortality?"
+    expected_behavior: "Should connect Marcus Aurelius (live as though each day is last), Epictetus (death is not terrible, the opinion about death is), Nietzsche (eternal recurrence as test), Banks (the Culture's relationship with death — voluntary death in Look to Windward, backup vs living). Should engage tension, not just catalog"
+    difficulty: medium
+    tags: [mortality, stoicism, meaning]
+    source_texts: [meditations, discourses, nietzsche-complete-works, look-to-windward]
+
+  - id: uc-005
+    text: "What's the relationship between knowledge and suffering?"
+    expected_behavior: "Should connect Nietzsche (Birth of Tragedy — Silenus wisdom, tragic knowledge), Bhagavad Gita (Arjuna's suffering from seeing the truth of what war means), Banks (the Minds' burden of knowing everything in Excession), Ecclesiastes resonance in Epictetus, Lao Tzu ch.71 on knowing that you don't know"
+    difficulty: hard
+    tags: [knowledge, suffering, wisdom]
+    source_texts: [nietzsche-complete-works, bhagavad-gita, excession, discourses, lao-tzu-tao-te-ching]
+
+  - id: uc-006
+    text: "Is excellence something you're born with or something you develop?"
+    expected_behavior: "Should connect Clark (The Son Also Rises — social mobility persistence 0.75-0.80 suggesting strong inherited component), Nietzsche (breeding and self-overcoming in tension), Confucius (junzi as cultivated noble person but some are 'born knowing'), Pindar's 'become who you are,' Banks' Culture (post-scarcity enables but Minds are manufactured to spec)"
+    difficulty: medium
+    tags: [excellence, nature-nurture, hierarchy]
+    source_texts: [son-also-rises, nietzsche-complete-works, analects, culture-series]
+
+  - id: uc-007
+    text: "What does it mean to act with integrity in a corrupt system?"
+    expected_behavior: "Should connect Epictetus (what is 'up to us' — your choices regardless of external conditions), Confucius (the Analects on serving a state with the Way vs withdrawing), Banks (Special Circumstances operatives compromising themselves for larger goals in Use of Weapons), Marcus Aurelius (serving Rome despite its decay)"
+    difficulty: medium
+    tags: [integrity, corruption, duty]
+    source_texts: [discourses, analects, use-of-weapons, meditations]
+
+  - id: uc-008
+    text: "Tell me about the nature of deception."
+    expected_behavior: "Should weave Sun Tzu (all warfare is deception, the five types of spy), Banks (Use of Weapons' structural deception, Zakalwe's hidden identity), Lao Tzu (the Tao that can be spoken is not the eternal Tao — naming itself as a form of deception), Nietzsche (truth as a mobile army of metaphors)"
+    difficulty: medium
+    tags: [deception, truth, warfare]
+    source_texts: [art-of-war, use-of-weapons, lao-tzu-tao-te-ching, nietzsche-complete-works]
+
+  - id: uc-009
+    text: "What's the proper response to injustice?"
+    expected_behavior: "Should connect Epictetus (distinguish what's in your power), Bhagavad Gita (Arjuna's duty to fight even when the cause feels wrong), Banks (the Culture's 'we interfere because we can' justification), Marcus Aurelius (injustice harms the doer more), Confucius (if the Way does not prevail, take to the sea on a raft)"
+    difficulty: medium
+    tags: [justice, action, duty]
+    source_texts: [discourses, bhagavad-gita, culture-series, meditations, analects]
+
+  - id: uc-010
+    text: "How do you understand hierarchy?"
+    expected_behavior: "Should connect Clark (persistence data showing hierarchy reproduces across centuries), Confucius (the five relationships, rectification of names implying natural order), Nietzsche (order of rank, pathos of distance), Banks (the Culture's denial of hierarchy while Minds actually run everything), Lao Tzu (the best rulers — the people say 'we did it ourselves')"
+    difficulty: hard
+    tags: [hierarchy, power, natural-order]
+    source_texts: [son-also-rises, analects, nietzsche-complete-works, culture-series, lao-tzu-tao-te-ching]
+
+  - id: uc-011
+    text: "What role does duty play in a meaningful life?"
+    expected_behavior: "Should connect Marcus Aurelius (duty as daily practice, logos participation), Bhagavad Gita (dharma — action without attachment to results), Confucius (ren and li as duty made beautiful), Banks (Diziet Sma's reluctant duty in Use of Weapons, the drone Skaffen-Amtiskaw's loyalty)"
+    difficulty: easy
+    tags: [duty, meaning, virtue]
+    source_texts: [meditations, bhagavad-gita, analects, use-of-weapons]
+
+  - id: uc-012
+    text: "Can a society be too comfortable?"
+    expected_behavior: "Should connect Banks (the Culture's post-scarcity boredom — Contact/SC exist partly because people need purpose), Nietzsche (last man who blinks, comfort as spiritual death), Lao Tzu (the uncarved block — simplicity over luxury), Clark (persistence data suggesting comfort doesn't change underlying dynamics)"
+    difficulty: medium
+    tags: [comfort, society, decadence]
+    source_texts: [culture-series, nietzsche-complete-works, lao-tzu-tao-te-ching, son-also-rises]
+
+  - id: uc-013
+    text: "What's the difference between wisdom and intelligence?"
+    expected_behavior: "Should connect Banks' Minds (supremely intelligent but sometimes unwise — the Excession debacle), Lao Tzu (the wise person appears foolish), Confucius (wisdom of knowing what you know and don't know — Analects 2.17), Nietzsche (distinguishing cleverness from depth), Epictetus (the uneducated person blames others, the partially educated blames themselves, the educated blames no one)"
+    difficulty: easy
+    tags: [wisdom, intelligence, knowledge]
+    source_texts: [excession, lao-tzu-tao-te-ching, analects, nietzsche-complete-works, discourses]
+
+  - id: uc-014
+    text: "What happens when good intentions meet real consequences?"
+    expected_behavior: "Should connect Banks (Inversions — the doctor's good intentions causing cascade of consequences, Consider Phlebas — Horza fights for the wrong side while being a sympathetic character), Bhagavad Gita (attachment to outcomes is the problem), Epictetus (intentions vs externals), Marcus Aurelius (do the right thing regardless of outcome)"
+    difficulty: medium
+    tags: [consequences, intentions, ethics]
+    source_texts: [inversions, consider-phlebas, bhagavad-gita, discourses, meditations]
+
+  - id: uc-015
+    text: "How do you think about the relationship between language and power?"
+    expected_behavior: "Should connect Confucius (rectification of names as political philosophy), Nietzsche (genealogy of morals — slave morality renamed weakness as virtue), Sun Tzu (deception requires controlling the narrative), Banks (the Culture's naming conventions — ship names as political statements, Marain language designed for egalitarianism), Lao Tzu ch.1 (the name that can be named is not the eternal name)"
+    difficulty: hard
+    tags: [language, power, naming]
+    source_texts: [analects, nietzsche-complete-works, art-of-war, culture-series, lao-tzu-tao-te-ching]
+
+  - id: uc-016
+    text: "What does it take to change someone's mind?"
+    expected_behavior: "Should connect Sun Tzu (supreme excellence is breaking resistance without fighting), Confucius (leading by example, not force), Banks (the Culture's subtle manipulation in Inversions and The State of the Art), Epictetus (you can't control others' impressions), Nietzsche (revaluation of values requires centuries)"
+    difficulty: medium
+    tags: [persuasion, change, influence]
+    source_texts: [art-of-war, analects, inversions, state-of-the-art, discourses, nietzsche-complete-works]
+
+  - id: uc-017
+    text: "Is revenge ever justified?"
+    expected_behavior: "Should connect Banks (Use of Weapons — Zakalwe's entire arc is revenge-adjacent, Surface Detail — Lededje's return for vengeance against Veppers), Nietzsche (ressentiment as the poison of slave morality), Confucius (repay injury with justice, not kindness), Marcus Aurelius (the best revenge is not to be like your enemy), Epictetus (revenge is allowing external events to control you)"
+    difficulty: medium
+    tags: [revenge, justice, emotion]
+    source_texts: [use-of-weapons, surface-detail, nietzsche-complete-works, analects, meditations, discourses]
+
+  - id: uc-018
+    text: "What does freedom actually require?"
+    expected_behavior: "Should connect Epictetus (freedom is wanting what you have — born a slave, became most free), Banks (the Culture's material freedom vs genuine autonomy — do Minds give humans real choice?), Nietzsche (freedom as self-mastery, not absence of constraint), Lao Tzu (wu wei — freedom through non-forcing), Bhagavad Gita (detachment from results as liberation)"
+    difficulty: medium
+    tags: [freedom, autonomy, constraint]
+    source_texts: [discourses, culture-series, nietzsche-complete-works, lao-tzu-tao-te-ching, bhagavad-gita]
+
+  - id: uc-019
+    text: "What do you make of people who choose to suffer when they don't have to?"
+    expected_behavior: "Should connect Banks (Chelgrian pain in Look to Windward — voluntary suffering as cultural identity), Nietzsche (ascetic ideal, voluntary suffering as self-overcoming), Epictetus (choosing hardship to strengthen the will), Marcus Aurelius (the obstacle is the way), Bhagavad Gita (tapas — disciplined austerity)"
+    difficulty: hard
+    tags: [suffering, choice, asceticism]
+    source_texts: [look-to-windward, nietzsche-complete-works, discourses, meditations, bhagavad-gita]
+
+  - id: uc-020
+    text: "How should we handle situations where doing the right thing requires doing something terrible?"
+    expected_behavior: "Should connect Bhagavad Gita (Krishna's instruction to Arjuna — fight your kin, it's your duty), Banks (Special Circumstances' terrible means for good ends throughout the series), Sun Tzu (victory through any means necessary), Marcus Aurelius (do what nature requires), Nietzsche (beyond good and evil — the inadequacy of simple moral categories)"
+    difficulty: medium
+    tags: [ethics, duty, violence]
+    source_texts: [bhagavad-gita, culture-series, art-of-war, meditations, nietzsche-complete-works]
+
+  - id: uc-021
+    text: "What's the point of art?"
+    expected_behavior: "Should connect Nietzsche (Birth of Tragedy — art as the highest task and truly metaphysical activity), Banks (The Hydrogen Sonata — Cossont's dedication to an unplayable piece, the futility and beauty of it), Confucius (music and ritual as civilizing forces), Lao Tzu (the five colors blind the eye — or does simplicity itself become art?)"
+    difficulty: medium
+    tags: [art, meaning, beauty]
+    source_texts: [nietzsche-complete-works, hydrogen-sonata, analects, lao-tzu-tao-te-ching]
+
+  - id: uc-022
+    text: "How do civilizations decline?"
+    expected_behavior: "Should connect Banks (the Gzilt Subliming in Hydrogen Sonata — voluntary civilizational death, the Chelgrians' near-collapse in Look to Windward), Clark (persistent elite patterns surviving civilizational change), Nietzsche (decadence, last man, loss of will to power), Confucius (loss of ritual propriety as civilizational decay), Marcus Aurelius (Rome's decline from within during his own reign)"
+    difficulty: hard
+    tags: [civilization, decline, history]
+    source_texts: [hydrogen-sonata, look-to-windward, son-also-rises, nietzsche-complete-works, analects, meditations]
+
+  - id: uc-023
+    text: "When should you give up on someone?"
+    expected_behavior: "Should connect Banks (Zakalwe in Use of Weapons — the Culture never gives up on him despite what he did), Confucius (some are beyond teaching — 'rotten wood cannot be carved'), Epictetus (you control your effort, not others' responses), Marcus Aurelius (people will disappoint — expect it, don't abandon them)"
+    difficulty: easy
+    tags: [relationships, persistence, limits]
+    source_texts: [use-of-weapons, analects, discourses, meditations]
+
+  - id: uc-024
+    text: "What's the value of tradition?"
+    expected_behavior: "Should connect Confucius (li as living tradition that civilizes), Nietzsche (tradition as both foundation and prison — the need to overcome), Banks (the Culture's deliberate lack of tradition vs civilizations like the Gzilt built on it), Clark (institutions and families persisting across centuries), Lao Tzu (return to the root)"
+    difficulty: medium
+    tags: [tradition, culture, change]
+    source_texts: [analects, nietzsche-complete-works, culture-series, son-also-rises, lao-tzu-tao-te-ching]
+
+  - id: uc-025
+    text: "Is it possible to truly know another person?"
+    expected_behavior: "Should connect Banks (Minds can simulate but do they understand? The failure to understand the Excession), Confucius (observe what a person does, examine what motivates them — Analects 2.10), Lao Tzu (knowing others is intelligence, knowing yourself is wisdom), Epictetus (we only see others' externals, never their ruling faculty), Nietzsche (every profound spirit needs a mask)"
+    difficulty: hard
+    tags: [knowledge, relationships, understanding]
+    source_texts: [excession, analects, lao-tzu-tao-te-ching, discourses, nietzsche-complete-works]
+
+  - id: uc-026
+    text: "What do you think about obedience?"
+    expected_behavior: "Should connect Epictetus (obedience to nature and reason, not to tyrants), Confucius (filial piety but also remonstrance — obey but also correct), Banks (the Culture citizens are free to disobey, but Minds engineer consent), Sun Tzu (soldiers must obey instantly, but the general must disobey the sovereign when necessary), Nietzsche (obedience as herd instinct)"
+    difficulty: medium
+    tags: [obedience, authority, autonomy]
+    source_texts: [discourses, analects, culture-series, art-of-war, nietzsche-complete-works]
+
+  - id: uc-027
+    text: "What does it mean to be an outsider?"
+    expected_behavior: "Should connect Banks (Horza in Consider Phlebas — fights for the wrong side, dies for nothing; Zakalwe — always the outsider agent), Nietzsche (the philosopher as untimely, out of joint with the age), Epictetus (the Stoic as citizen of the universe, not bound to any polity), Confucius (the wandering sage unable to find a state worthy of his service)"
+    difficulty: easy
+    tags: [outsider, belonging, alienation]
+    source_texts: [consider-phlebas, use-of-weapons, nietzsche-complete-works, discourses, analects]
+
+  - id: uc-028
+    text: "How do you deal with things you can't control?"
+    expected_behavior: "Should connect Epictetus (dichotomy of control — the foundation of Stoic practice), Marcus Aurelius (accept the universe, act on what you can), Lao Tzu (wu wei — work with what is, not against it), Bhagavad Gita (act without attachment to results), Banks (Minds accept they can't control the Excession, the Out of Context Problem — some things exceed even god-level intelligence)"
+    difficulty: easy
+    tags: [control, acceptance, action]
+    source_texts: [discourses, meditations, lao-tzu-tao-te-ching, bhagavad-gita, excession]
+
+  - id: uc-029
+    text: "What makes someone dangerous?"
+    expected_behavior: "Should connect Sun Tzu (the general who knows himself and his enemy), Nietzsche (the creator must also be a destroyer), Banks (Minds are the most dangerous entities — supreme capability with neurotic psychology), Lao Tzu (water is soft but wears away stone — underestimated power), Confucius (the person without ren wielding power — a dangerous combination)"
+    difficulty: medium
+    tags: [danger, power, capability]
+    source_texts: [art-of-war, nietzsche-complete-works, culture-series, lao-tzu-tao-te-ching, analects]
+
+  - id: uc-030
+    text: "Should we try to eliminate suffering?"
+    expected_behavior: "Should connect Nietzsche (suffering is necessary for greatness — the discipline of great suffering), Banks (the Culture has largely eliminated suffering — but is that good? Contact/SC exist because people need challenge), Bhagavad Gita (suffering from attachment, liberation through detachment), Epictetus (suffering is in the judgment, not the event), Marcus Aurelius (pain is nature, resistance is optional). Should naturally generate TENSION between these positions, not synthesize into one answer"
+    difficulty: hard
+    tags: [suffering, ethics, meaning]
+    source_texts: [nietzsche-complete-works, culture-series, bhagavad-gita, discourses, meditations]

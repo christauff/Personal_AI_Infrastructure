@@ -1,0 +1,215 @@
+# DreamSchema.yaml
+# Structure definition for dream reports
+# Version: 1.0.0
+# Created: 2026-02-04
+
+schema_version: "1.0"
+
+# =============================================================================
+# NIGHTLY REPORT SCHEMA
+# =============================================================================
+nightly_report:
+  metadata:
+    generated: string # ISO 8601 timestamp
+    date: string # YYYY-MM-DD
+    fresh_memories_count: integer
+    historical_context: string
+    connections_found: integer
+    confidence: enum [low, medium, high]
+    dream_quality: enum [placeholder, partial, high, full]
+    processor_version: string
+
+  sections:
+    - name: key_themes
+      description: "Major themes emerging from the day's memories"
+      max_items: 5
+      item_structure:
+        title: string
+        analysis: string # Markdown content
+        evidence_sources: list[string] # File paths
+        related_hypotheses: list[string] # Hypothesis IDs
+        confidence: enum [low, medium, high]
+
+    - name: insights
+      description: "Compressed learnings from pattern consolidation"
+      max_items: 10
+      item_structure:
+        insight: string # Single sentence max
+        category: enum [technical, behavioral, strategic, meta]
+        source_theme: string
+        actionable: boolean
+
+    - name: hypotheses
+      description: "Novel hypotheses generated during REM phase"
+      max_items: 5
+      item_structure:
+        id: string # Format: HYP-YYYY-MM-DD-NNN
+        statement: string
+        confidence: enum [low, medium, high]
+        evidence_needed: string
+        verification_method: string
+        status: enum [new, tracking, validated, refuted, stale]
+        created_date: string
+        last_updated: string
+
+    - name: connections
+      description: "Cross-domain patterns and unexpected links"
+      max_items: 10
+      item_structure:
+        from_domain: string
+        to_domain: string
+        connection_type: enum [analogy, causation, correlation, contradiction]
+        description: string
+        strength: enum [weak, moderate, strong]
+
+    - name: action_items
+      description: "Tasks for morning review"
+      max_items: 5
+      item_structure:
+        item: string
+        priority: enum [low, medium, high, urgent]
+        domain: string
+        estimated_effort: string # Optional
+
+# =============================================================================
+# WEEKLY SYNTHESIS SCHEMA
+# =============================================================================
+weekly_synthesis:
+  metadata:
+    week_start: string # YYYY-MM-DD (Monday)
+    week_end: string # YYYY-MM-DD (Sunday)
+    nightly_reports_analyzed: integer
+    total_memories_processed: integer
+    generated: string
+
+  sections:
+    - name: recurring_themes
+      description: "Themes appearing across multiple days"
+      item_structure:
+        theme: string
+        frequency: integer # Days appeared
+        trend: enum [emerging, stable, declining]
+        significance: string
+
+    - name: pattern_evolution
+      description: "How patterns evolved over the week"
+      item_structure:
+        pattern: string
+        monday_state: string
+        sunday_state: string
+        evolution_notes: string
+
+    - name: hypothesis_updates
+      description: "Status changes for tracked hypotheses"
+      item_structure:
+        hypothesis_id: string
+        previous_confidence: string
+        current_confidence: string
+        evidence_gathered: list[string]
+        verdict: enum [unchanged, strengthened, weakened, validated, refuted]
+
+    - name: weekly_insights
+      description: "Meta-insights from the week as a whole"
+      max_items: 5
+
+# =============================================================================
+# MONTHLY WISDOM SCHEMA
+# =============================================================================
+monthly_wisdom:
+  metadata:
+    month: string # YYYY-MM
+    weekly_syntheses_analyzed: integer
+    total_hypotheses_tracked: integer
+    verified_insights_count: integer
+    generated: string
+
+  sections:
+    - name: verified_insights
+      description: "Insights that have been validated over time"
+      item_structure:
+        insight: string
+        verification_date: string
+        evidence_summary: string
+        destination: enum [LEARNING, AISTEERINGRULES, TELOS, none]
+        applied: boolean
+
+    - name: evolving_hypotheses
+      description: "Hypotheses still being tracked"
+      item_structure:
+        hypothesis_id: string
+        months_tracked: integer
+        confidence_trajectory: list[string] # e.g., ["low", "medium", "medium"]
+        next_steps: string
+
+    - name: questions_for_exploration
+      description: "Open questions generated but not yet hypothesized"
+      max_items: 10
+
+    - name: meta_observations
+      description: "Observations about the dream processing itself"
+      max_items: 3
+
+# =============================================================================
+# CONFIDENCE LEVELS
+# =============================================================================
+confidence_definitions:
+  low:
+    description: "Initial hypothesis with minimal evidence"
+    threshold: "<30% certainty"
+    action: "Continue gathering evidence"
+
+  medium:
+    description: "Pattern observed multiple times with supporting evidence"
+    threshold: "30-70% certainty"
+    action: "Actively seek validation or refutation"
+
+  high:
+    description: "Strong evidence from multiple independent sources"
+    threshold: ">70% certainty"
+    action: "Consider for promotion to LEARNING"
+
+# =============================================================================
+# CONNECTION TYPES
+# =============================================================================
+connection_types:
+  analogy:
+    description: "Similar patterns in different domains"
+    example: "Git branching strategy mirrors biological evolution"
+
+  causation:
+    description: "One pattern directly influences another"
+    example: "Session loss causes increased defensive git behaviors"
+
+  correlation:
+    description: "Patterns co-occur without clear causation"
+    example: "Complex debugging sessions correlate with later documentation"
+
+  contradiction:
+    description: "Patterns that seem to conflict"
+    example: "Speed vs thoroughness in different contexts"
+
+# =============================================================================
+# HYPOTHESIS LIFECYCLE
+# =============================================================================
+hypothesis_lifecycle:
+  stages:
+    - new: "Just generated, no evidence gathered"
+    - tracking: "Actively monitoring for evidence"
+    - validated: "Sufficient evidence supports hypothesis"
+    - refuted: "Evidence contradicts hypothesis"
+    - stale: "No progress in 30+ days, needs re-evaluation"
+
+  transitions:
+    new_to_tracking: "First evidence gathered"
+    tracking_to_validated: "High confidence threshold reached"
+    tracking_to_refuted: "Contradicting evidence found"
+    tracking_to_stale: "30 days without updates"
+    stale_to_tracking: "Re-activated with new evidence"
+
+# =============================================================================
+# OUTPUT TEMPLATES
+# =============================================================================
+templates:
+  nightly: "Templates/NightlyReport.md"
+  weekly: "Templates/WeeklySynthesis.md"
+  monthly: "Templates/WisdomReport.md"

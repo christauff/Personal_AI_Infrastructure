@@ -1,0 +1,119 @@
+# GitHub Trending - LandscapeMonitor
+# Created: 2026-01-30
+# Purpose: Track trending AI agent repositories and MCP ecosystem
+
+repositories:
+  # ═══════════════════════════════════════════════════════════════
+  # Core Protocol Repos - Watch for changes
+  # ═══════════════════════════════════════════════════════════════
+
+  - name: "MCP Specification"
+    repo: "anthropics/mcp"
+    watch_type: releases_and_commits
+    priority: critical
+    alert_on:
+      - new_release
+      - breaking_commit
+    keywords_in_commits:
+      - "breaking"
+      - "deprecate"
+      - "schema"
+
+  - name: "MCP Servers"
+    repo: "modelcontextprotocol/servers"
+    watch_type: releases
+    priority: high
+    alert_on:
+      - new_release
+
+  # ═══════════════════════════════════════════════════════════════
+  # Agent Frameworks - Track releases
+  # ═══════════════════════════════════════════════════════════════
+
+  - name: "LangChain"
+    repo: "langchain-ai/langchain"
+    watch_type: releases
+    priority: high
+
+  - name: "LangGraph"
+    repo: "langchain-ai/langgraph"
+    watch_type: releases
+    priority: high
+
+  - name: "CrewAI"
+    repo: "joaomdmoura/crewAI"
+    watch_type: releases
+    priority: medium
+
+  - name: "AutoGPT"
+    repo: "Significant-Gravitas/AutoGPT"
+    watch_type: releases
+    priority: medium
+
+  - name: "OpenClaw"
+    repo: "open-claw/openclaw"
+    watch_type: releases_and_issues
+    priority: medium
+    alert_on:
+      - security_issue
+      - breaking_change
+
+  # ═══════════════════════════════════════════════════════════════
+  # Memory & RAG - Track innovations
+  # ═══════════════════════════════════════════════════════════════
+
+  - name: "Mem0"
+    repo: "mem0ai/mem0"
+    watch_type: releases
+    priority: medium
+
+  - name: "MemGPT/Letta"
+    repo: "letta-ai/letta"
+    watch_type: releases
+    priority: medium
+
+  - name: "ChromaDB"
+    repo: "chroma-core/chroma"
+    watch_type: releases
+    priority: low
+
+  # ═══════════════════════════════════════════════════════════════
+  # Trending Discovery
+  # ═══════════════════════════════════════════════════════════════
+
+trending:
+  languages:
+    - python
+    - typescript
+    - javascript
+
+  topics:
+    - "llm-agent"
+    - "ai-agent"
+    - "mcp"
+    - "model-context-protocol"
+    - "autonomous-agents"
+    - "multi-agent"
+
+  filters:
+    min_stars: 100
+    created_within_days: 90
+    exclude_forks: true
+
+  check_frequency: daily
+
+# ═══════════════════════════════════════════════════════════════
+# Alert configuration
+# ═══════════════════════════════════════════════════════════════
+
+alerts:
+  new_trending_repo:
+    threshold_stars: 500
+    threshold_growth_rate: 100  # stars per day
+    priority: medium
+
+  watched_repo_release:
+    priority: varies  # based on repo priority
+
+  security_advisory:
+    priority: critical

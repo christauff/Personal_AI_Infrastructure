@@ -1,0 +1,79 @@
+id: minimax-m25-deepdive
+created: "2026-02-13"
+priority: high
+source: "https://www.minimax.io/"
+category: competitive-threat
+status: active
+title: "MiniMax M2.5 + Agent Framework: Near-Opus Performance at 1/20th Cost"
+
+summary: |
+  MiniMax (Chinese AI company, 212M users, 130K enterprise clients) released M2.5
+  in February 2026 — scoring 80.2% SWE-Bench Verified (vs Opus 4.6's 80.8%) at
+  1/10th to 1/20th the cost. They have an MCP server, an open-source agent framework
+  (Mini-Agent), and full multimodal capabilities (text, audio, video, music, image).
+  This is significant competitive pressure on PAI's infrastructure cost assumptions.
+
+key_findings:
+  - name: "M2.5 Coding Performance"
+    detail: "80.2% SWE-Bench Verified, within 0.6pp of Opus 4.6 (80.8%)"
+    impact: "Near frontier-level coding at radical cost reduction"
+
+  - name: "Price Disruption"
+    detail: "$0.15/M input, $1.20/M output (standard) vs ~$75/M output for Opus"
+    impact: "30x cost reduction for comparable SWE-Bench performance"
+
+  - name: "MCP Server Integration"
+    detail: "Official MiniMax-MCP server for TTS, image, video, music generation"
+    impact: "Direct competitor to PAI's multimodal tool integration"
+
+  - name: "Mini-Agent Framework"
+    detail: "Open-source CLI agent with 15 skills, MCP native, session memory"
+    impact: "Direct competitor to Claude Code's agent architecture"
+
+  - name: "Multimodal Stack"
+    detail: "Text (M2.5), Speech 2.6 (40 lang, 5s voice clone), Hailuo 2.3 (1080p video), Music 2.5"
+    impact: "Comprehensive creative AI suite under one provider"
+
+  - name: "Scale"
+    detail: "212M individual users, 130K enterprise clients, 200+ countries"
+    impact: "Not a startup — production-grade infrastructure at scale"
+
+  - name: "Open Weights"
+    detail: "M2.5 available on Ollama and HuggingFace for local deployment"
+    impact: "Can run locally, eliminating API dependency entirely"
+
+  - name: "Agent-First Architecture"
+    detail: "Multi-agent system with specialized modules for different task types"
+    impact: "Architectural similarity to PAI's delegation model"
+
+pai_implications:
+  strategic:
+    - "M2.5 as potential inference engine for cost-sensitive PAI operations"
+    - "MiniMax MCP server could extend PAI's multimodal capabilities"
+    - "Open weights enable local deployment for privacy-critical tasks"
+    - "Budget monitoring becomes even more critical as alternatives emerge"
+
+  risks:
+    - "Chinese company — data sovereignty and trust considerations"
+    - "Benchmark gaming possible — real-world performance may differ"
+    - "Mini-Agent competing directly in PAI's niche (CLI + agent + MCP)"
+    - "If 1/20th cost is real, current Opus-heavy PAI operations are over-spending"
+
+  opportunities:
+    - "Test M2.5 via Inference.ts as 'fast' tier replacement or supplement"
+    - "Integrate MiniMax MCP server for video/music/TTS generation"
+    - "Run M2.5 locally via Ollama for offline/private operations"
+    - "Use price pressure as leverage for Anthropic pricing negotiations"
+
+action_items:
+  - "Evaluate M2.5 against PAI's actual workloads (not just benchmarks)"
+  - "Test Mini-Agent architecture for ideas worth adopting"
+  - "Consider MiniMax API as alternative inference provider in Inference.ts"
+  - "Monitor data sovereignty policies before enterprise adoption"
+
+sources:
+  - "https://www.minimax.io/"
+  - "https://venturebeat.com/technology/minimaxs-new-open-m2-5-and-m2-5-lightning-near-state-of-the-art-while"
+  - "https://github.com/MiniMax-AI/Mini-Agent"
+  - "https://github.com/MiniMax-AI/MiniMax-MCP"
+  - "https://news.ycombinator.com/item?id=46991154"

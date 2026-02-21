@@ -1,0 +1,405 @@
+# ExtractWisdom Workflow
+
+Execute the multi-layered wisdom extraction pipeline: Research → Fabric → FirstPrinciples
+
+**Pipeline:** `extract_wisdom` from `Data/Pipelines.yaml`
+
+---
+
+## Voice Notification
+
+**MANDATORY - Execute immediately:**
+
+```bash
+curl -s --connect-timeout 3 --max-time 5 -X POST http://localhost:8888/notify \
+  -H "Content-Type: application/json" \
+  -d '{"message": "Running the ExtractWisdom workflow in the WisdomSynthesis skill to synthesize deep insights"}' \
+  > /dev/null 2>&1 &
+```
+
+**Text notification:**
+```
+Running the **ExtractWisdom** workflow in the **WisdomSynthesis** skill to synthesize deep insights...
+```
+
+---
+
+## Workflow Steps
+
+### Step 0: Detect Input Type
+
+**CRITICAL:** Determine if input is a file path, URL, or topic.
+
+**File Detection:**
+```bash
+# Check if input is a file path
+if [[ -f "$INPUT" ]]; then
+  MODE="file"
+  CONTENT=$(cat "$INPUT")
+elif [[ "$INPUT" =~ ^https?:// ]]; then
+  MODE="url"
+else
+  MODE="topic"
+fi
+```
+
+**Input Type Routing:**
+
+| Input Type | Example | Action |
+|------------|---------|--------|
+| **File path** | `~/Documents/article.txt` | Read file → Skip Research → Fabric |
+| **URL** | `https://example.com/article` | Research URL |
+| **Topic** | `quantum computing` | Research topic |
+| **Direct content** | Pasted text | Skip Research → Fabric |
+
+**⚠️ RESOURCE WARNING:**
+- File mode: **No agent spawning**, direct Fabric extraction
+- URL/Topic mode: **4 parallel research agents** (Perplexity, Claude, Gemini, Codex)
+- Large files (>100KB): Consider manual chunking or use `haiku` model
+
+---
+
+### Step 1a: File Mode (Skip Research)
+
+**IF INPUT IS FILE:**
+
+```bash
+# Read file content
+FILE_PATH="[USER_PROVIDED_PATH]"
+CONTENT=$(cat "$FILE_PATH")
+LINES=$(wc -l < "$FILE_PATH")
+SIZE=$(du -h "$FILE_PATH" | cut -f1)
+
+echo "📄 File Mode Detected"
+echo "Path: $FILE_PATH"
+echo "Size: $SIZE ($LINES lines)"
+echo "Skipping Research phase - extracting wisdom directly from file content."
+```
+
+**Proceed directly to Step 2 (Fabric) with file content.**
+
+---
+
+### Step 1b: Research Phase (Topic/URL Mode)
+
+**IF INPUT IS TOPIC OR URL:**
+
+⚠️ **Resource Impact:** Spawns 4 parallel agents
+
+Launch comprehensive research using ClaudeResearcher:
+
+```typescript
+Task({
+  subagent_type: "ClaudeResearcher",
+  description: "Research background and context",
+  prompt: `Research this topic comprehensively: [TOPIC]
+
+  Focus on:
+  - Core concepts and definitions
+  - Key insights and findings
+  - Expert perspectives
+  - Related research and sources
+
+  Return comprehensive findings with sources.`,
+  model: "sonnet"
+})
+```
+
+**Wait for research completion.** Store output as `research_findings`.
+
+### Step 2: Fabric Extract Wisdom
+
+**Input depends on mode:**
+- **File mode:** Use file content directly (no research findings)
+- **Topic/URL mode:** Use research findings from Step 1b
+
+Apply the extract_wisdom pattern:
+
+**Read the pattern:**
+```bash
+PATTERN_PATH="$HOME/.claude/skills/Fabric/Patterns/extract_wisdom/system.md"
+```
+
+**Execute using Task delegation:**
+
+```typescript
+Task({
+  subagent_type: "general-purpose",
+  description: "Extract structured wisdom",
+  prompt: `Using the Fabric extract_wisdom pattern, analyze this content:
+
+  ${MODE === "file" ? "[FILE_CONTENT]" : "[RESEARCH_FINDINGS]"}
+
+  Extract:
+  - IDEAS: Novel concepts and thoughts
+  - INSIGHTS: Deep realizations and implications
+  - QUOTES: Notable statements (with attribution)
+  - HABITS: Recommended practices
+  - FACTS: Verifiable information
+  - REFERENCES: Key sources
+  - RECOMMENDATIONS: Actionable suggestions
+
+  Return structured output following the extract_wisdom format.`,
+  model: "sonnet"
+})
+```
+
+**Wait for extraction completion.** Store output as `extracted_wisdom`.
+
+### Step 3: FirstPrinciples Decomposition
+
+Decompose to fundamental concepts using FirstPrinciples:
+
+```typescript
+Task({
+  subagent_type: "general-purpose",
+  description: "Decompose to first principles",
+  prompt: `Using first principles thinking, analyze this wisdom:
+
+  [EXTRACTED_WISDOM]
+
+  Decompose to:
+  1. Fundamental assumptions
+  2. Core building blocks
+  3. Logical dependencies
+  4. Derived conclusions
+  5. Emergent patterns
+
+  For each insight, ask "What is this really based on?" until you reach irreducible fundamentals.
+
+  Return structured first principles analysis.`,
+  model: "sonnet"
+})
+```
+
+**Wait for decomposition completion.** Store output as `fundamental_insights`.
+
+### Step 4: Synthesize Final Report
+
+Combine all three layers into a coherent synthesis:
+
+**Report Structure:**
+
+```markdown
+# Wisdom Synthesis Report: [TOPIC]
+
+## Executive Summary
+[2-3 sentence synthesis of key findings]
+
+---
+
+## Layer 1: Research Foundation
+
+### Context
+[Research background and landscape]
+
+### Key Findings
+[Major discoveries from research phase]
+
+### Sources
+[Curated list of primary sources with URLs]
+
+---
+
+## Layer 2: Extracted Wisdom
+
+### IDEAS
+[Novel concepts from Fabric extraction]
+
+### INSIGHTS
+[Deep realizations and implications]
+
+### QUOTES
+[Notable statements with attribution]
+
+### HABITS
+[Recommended practices]
+
+### FACTS
+[Verifiable information]
+
+### REFERENCES
+[Key sources]
+
+### RECOMMENDATIONS
+[Actionable suggestions]
+
+---
+
+## Layer 3: Fundamental Principles
+
+### Core Assumptions
+[Foundational beliefs underlying the topic]
+
+### Building Blocks
+[Irreducible components]
+
+### Logical Structure
+[How concepts build on each other]
+
+### Emergent Patterns
+[Higher-order insights from synthesis]
+
+---
+
+## Meta-Synthesis
+
+### Cross-Layer Insights
+[Patterns visible only by combining all three layers]
+
+### Contradictions and Tensions
+[Where different layers conflict or create tension]
+
+### Confidence Assessment
+- Research Quality: [High/Medium/Low]
+- Source Diversity: [#] distinct perspectives
+- Principle Clarity: [How clear are the fundamentals?]
+
+### Further Exploration
+[Questions and areas for deeper investigation]
+
+---
+
+## Practical Application
+
+### Immediate Actions
+[What can be done right now with these insights]
+
+### Long-term Integration
+[How to incorporate into broader understanding]
+
+### Related Topics
+[Adjacent areas worth exploring]
+
+---
+
+*Generated by WisdomSynthesis Pipeline v1.0.0*
+*Research: ClaudeResearcher | Extraction: Fabric extract_wisdom | Decomposition: FirstPrinciples*
+```
+
+---
+
+## Error Handling
+
+### Research Phase Failures
+
+**No sources found:**
+```
+Research phase returned no sources for "[TOPIC]".
+
+Possible issues:
+- Topic too specific/niche
+- Topic phrasing unclear
+- Network/API issues
+
+Recommendation: Rephrase topic or provide more context.
+```
+
+**Insufficient depth:**
+```
+Research phase returned limited findings (< 3 sources).
+
+Continue with pipeline? Options:
+1. Continue anyway (lower confidence synthesis)
+2. Retry with broader topic
+3. Switch to extensive research mode (12 agents)
+```
+
+### Fabric Phase Failures
+
+**Pattern not found:**
+```
+extract_wisdom pattern not found at ~/.claude/skills/Fabric/Patterns/extract_wisdom/
+
+Run: fabric -U
+Or: Update Fabric skill
+```
+
+**Extraction incomplete:**
+```
+Fabric extraction missing key sections.
+
+Present sections: [list]
+Missing sections: [list]
+
+Continue with partial extraction? [Y/N]
+```
+
+### FirstPrinciples Phase Failures
+
+**Shallow decomposition:**
+```
+FirstPrinciples analysis did not reach fundamental level.
+
+Depth achieved: [2/5 levels]
+
+Options:
+1. Accept current depth
+2. Retry with BeCreative for deeper reasoning
+3. Manual refinement
+```
+
+---
+
+## Output
+
+The workflow produces a comprehensive multi-layered synthesis report combining:
+1. **Research foundation** - Contextual understanding
+2. **Extracted wisdom** - Structured insights
+3. **Fundamental principles** - Core concepts
+4. **Meta-synthesis** - Emergent patterns across layers
+
+**Format:** Markdown report
+**Location:** Output directly to user (can be saved to History/)
+
+---
+
+## Performance Notes
+
+**Typical execution time:** 30-45 seconds
+
+**Breakdown:**
+- Research: ~10-15s (1 agent, standard mode)
+- Fabric extraction: ~10-15s
+- FirstPrinciples: ~10-15s
+- Synthesis: <5s
+
+**Model recommendations:**
+- Research phase: `sonnet` (balanced speed/quality)
+- Fabric phase: `sonnet` (pattern following)
+- FirstPrinciples: `sonnet` or `opus` (deep reasoning)
+- Use `haiku` only for time-critical analysis (quality tradeoff)
+
+---
+
+## Examples
+
+**Example 1: Analyze an article**
+```
+User: "Use wisdom synthesis on this AI safety article: [URL]"
+
+→ Research: Gather AI safety context, related papers, expert views
+→ Fabric: Extract IDEAS, INSIGHTS, QUOTES from article + research
+→ FirstPrinciples: Decompose safety arguments to core assumptions
+→ Synthesis: 3-layer report showing surface insights + deep fundamentals
+```
+
+**Example 2: Deep topic understanding**
+```
+User: "I need deep wisdom synthesis on quantum computing"
+
+→ Research: Comprehensive quantum computing research (standard mode)
+→ Fabric: Extract key concepts, insights, mental models
+→ FirstPrinciples: Identify fundamental quantum principles
+→ Synthesis: Multi-layered understanding from applications to physics
+```
+
+**Example 3: Content synthesis**
+```
+User: "Synthesize wisdom from these 3 essays: [paste content]"
+
+→ Research: Background on authors, related work, context
+→ Fabric: Extract wisdom across all essays
+→ FirstPrinciples: Find common fundamental themes
+→ Synthesis: Cross-essay insights + deeper patterns
+```

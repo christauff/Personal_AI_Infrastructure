@@ -1,0 +1,38 @@
+# Rate budget allocation for Feedly API
+# Total monthly: 100,000 (shared DOE Enterprise)
+# Our budget: 50,000/month (~1,667/day)
+
+global:
+  monthly_budget: 50000
+  daily_budget: 1667
+  hourly_budget: 69
+  soft_cap_percent: 85   # Cache-only mode
+  hard_cap_percent: 90   # Block all requests
+
+consumers:
+  cyber-ops:
+    daily_limit: 1000
+    hourly_limit: 42
+    priority: 1
+    can_borrow: true
+
+  twitter-bot:
+    daily_limit: 500
+    hourly_limit: 21
+    priority: 2
+    can_borrow: false
+
+  reserve:
+    daily_limit: 167
+    hourly_limit: 7
+    priority: 3
+    can_borrow: false
+
+burst_rate_limit:
+  min_interval_ms: 2000   # Minimum 2s between requests (undocumented Feedly limit)
+
+circuit_breaker:
+  consecutive_errors: 5
+  window_minutes: 10
+  cooldown_minutes: 15
+  extended_cooldown_minutes: 30
